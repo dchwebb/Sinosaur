@@ -1,10 +1,18 @@
 {
   "board": {
-    "active_layer": 0,
+    "active_layer": 41,
     "active_layer_preset": "",
     "auto_track_width": false,
     "hidden_netclasses": [],
-    "hidden_nets": [],
+    "hidden_nets": [
+      "GND",
+      "+3.3V",
+      "+3.3VA",
+      "+12V",
+      "-12V",
+      "/+12V_IN",
+      "/-12V_IN"
+    ],
     "high_contrast_mode": 0,
     "net_color_mode": 1,
     "opacity": {
@@ -16,17 +24,17 @@
     },
     "ratsnest_display_mode": 0,
     "selection_filter": {
-      "dimensions": true,
+      "dimensions": false,
       "footprints": true,
       "graphics": true,
-      "keepouts": true,
-      "lockedItems": true,
-      "otherItems": true,
+      "keepouts": false,
+      "lockedItems": false,
+      "otherItems": false,
       "pads": false,
       "text": true,
       "tracks": true,
       "vias": true,
-      "zones": true
+      "zones": false
     },
     "visible_items": [
       0,
@@ -64,7 +72,7 @@
       35,
       36
     ],
-    "visible_layers": "ffcfeff_fffffffd",
+    "visible_layers": "ffcffdf_fffffffd",
     "zone_display_mode": 1
   },
   "git": {
@@ -74,7 +82,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "Quango_Components.kicad_prl",
+    "filename": "Uncertain_Times_Components.kicad_prl",
     "version": 3
   },
   "project": {
