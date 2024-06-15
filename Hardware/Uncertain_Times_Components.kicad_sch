@@ -7728,7 +7728,7 @@
 		(uuid "0cb3247b-fd0e-4df4-b708-30f64e5f358d")
 	)
 	(no_connect
-		(at 53.34 144.78)
+		(at 53.34 147.32)
 		(uuid "0faa57d6-c708-401f-bfa3-3997bc14b83d")
 	)
 	(no_connect
@@ -10413,7 +10413,7 @@
 		(uuid "148f8af9-ac02-46a7-a692-d379e630738d")
 	)
 	(label "Gate_Normal"
-		(at 377.19 100.33 0)
+		(at 341.63 38.1 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10512,7 +10512,7 @@
 		(uuid "1b851be0-6757-4d93-8550-7a786d26a5ee")
 	)
 	(label "Sine1_Inv_Out"
-		(at 341.63 55.88 0)
+		(at 341.63 53.34 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10534,7 +10534,7 @@
 		(uuid "1cf9d8a7-654b-4a95-a903-ec9dc30f4b7e")
 	)
 	(label "Swell_Level"
-		(at 341.63 127 0)
+		(at 341.63 66.04 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10556,7 +10556,7 @@
 		(uuid "201230ac-9db9-4a01-aee0-631f173f7fe8")
 	)
 	(label "Swell_Rate"
-		(at 341.63 124.46 0)
+		(at 306.07 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10611,7 +10611,7 @@
 		(uuid "27e3fdbf-0a20-4d5e-8189-57aee7ba0299")
 	)
 	(label "Ramp_Rate"
-		(at 306.07 129.54 0)
+		(at 306.07 58.42 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10732,7 +10732,7 @@
 		(uuid "2fd94e63-517c-4796-b5e7-298cc10ae948")
 	)
 	(label "Sine3_Rate_Btn"
-		(at 306.07 53.34 0)
+		(at 341.63 111.76 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10908,7 +10908,7 @@
 		(uuid "5abeca0e-37ff-4733-9d33-aa29ab019d20")
 	)
 	(label "Sine2_Lvl_Btn"
-		(at 341.63 50.8 0)
+		(at 341.63 121.92 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10930,7 +10930,7 @@
 		(uuid "5b250b05-6cbf-40a8-a09a-0073d92108b6")
 	)
 	(label "Sine2_Rate_Btn"
-		(at 53.34 139.7 180)
+		(at 53.34 142.24 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10996,7 +10996,7 @@
 		(uuid "62dd9eb6-4e3f-48ea-8cfa-23e3dc735019")
 	)
 	(label "Sine2_Ramp_Rate_LED"
-		(at 341.63 119.38 0)
+		(at 306.07 114.3 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11084,7 +11084,7 @@
 		(uuid "74fe50cc-9ef0-4ebc-b33e-21fd06bc6c81")
 	)
 	(label "Gate_In"
-		(at 341.63 132.08 0)
+		(at 341.63 127 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11106,7 +11106,7 @@
 		(uuid "75fdf98c-838b-4855-858d-eeca8a4e7648")
 	)
 	(label "Sine1_Swell_Rate_LED"
-		(at 306.07 55.88 0)
+		(at 306.07 66.04 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11117,7 +11117,7 @@
 		(uuid "7677985d-84de-49de-8785-1fb1d4a58047")
 	)
 	(label "Ramp_Level"
-		(at 306.07 132.08 0)
+		(at 306.07 63.5 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11139,7 +11139,7 @@
 		(uuid "7fc46c3c-6fad-4e16-9806-f07c397d79ec")
 	)
 	(label "Sine3_Rate_Btn"
-		(at 53.34 142.24 180)
+		(at 53.34 144.78 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11205,7 +11205,7 @@
 		(uuid "87273f8f-85ea-4bac-8cf8-53ae91ffef85")
 	)
 	(label "Sine1_Rate_Btn"
-		(at 341.63 53.34 0)
+		(at 341.63 116.84 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11216,7 +11216,7 @@
 		(uuid "8728a1b0-8103-4b57-acc1-29f69015f88a")
 	)
 	(label "Clock_In"
-		(at 306.07 127 0)
+		(at 341.63 129.54 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11238,7 +11238,7 @@
 		(uuid "8917dc6f-ec3a-452d-b653-4a0e4401e4c2")
 	)
 	(label "Sine2_Lvl_Btn"
-		(at 53.34 132.08 180)
+		(at 53.34 134.62 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11293,7 +11293,7 @@
 		(uuid "8e0b0164-bf61-41fc-9cc0-9ebc880af401")
 	)
 	(label "Sine2_Out"
-		(at 341.63 43.18 0)
+		(at 341.63 45.72 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11304,7 +11304,7 @@
 		(uuid "908de7e0-2696-475f-9766-4255e86742a7")
 	)
 	(label "Sine1_Level"
-		(at 306.07 63.5 0)
+		(at 306.07 50.8 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11348,7 +11348,7 @@
 		(uuid "998ff4b2-628a-483d-8b43-129d597d0cd8")
 	)
 	(label "Sine2_Level"
-		(at 306.07 66.04 0)
+		(at 306.07 53.34 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11381,7 +11381,7 @@
 		(uuid "a148c9e9-4538-437a-8e4c-3c4002f1b02a")
 	)
 	(label "Sine1_Lvl_Btn"
-		(at 382.27 106.68 0)
+		(at 341.63 124.46 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11469,7 +11469,7 @@
 		(uuid "a7fe03e0-fb70-4905-800b-4debe0bcef2d")
 	)
 	(label "Sine3_Lvl_Btn"
-		(at 53.34 134.62 180)
+		(at 53.34 137.16 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11491,7 +11491,7 @@
 		(uuid "a872ae7f-f5ba-41e9-8837-edff2aafa5ea")
 	)
 	(label "Gate_Scaled"
-		(at 53.34 147.32 180)
+		(at 53.34 129.54 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11535,7 +11535,7 @@
 		(uuid "ae2f9e45-5350-442e-9d1f-5c21126c0f84")
 	)
 	(label "Sine3_Lvl_Btn"
-		(at 306.07 121.92 0)
+		(at 341.63 119.38 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11711,7 +11711,7 @@
 		(uuid "c9b09793-a0cc-48eb-b7a5-c6e57dceaccb")
 	)
 	(label "Sine2_Rate_Btn"
-		(at 306.07 50.8 0)
+		(at 341.63 114.3 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11799,7 +11799,7 @@
 		(uuid "d2eebeb0-5ea4-49a5-ae79-0f8012afde60")
 	)
 	(label "Sine1_Rate_Btn"
-		(at 53.34 137.16 180)
+		(at 53.34 139.7 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11821,7 +11821,7 @@
 		(uuid "d72f80f1-e907-45e6-abf7-93f6097b0a1d")
 	)
 	(label "Sine1_Lvl_Btn"
-		(at 53.34 129.54 180)
+		(at 53.34 132.08 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11854,7 +11854,7 @@
 		(uuid "dd28efb7-5ebf-4bb9-8adc-d8cd435e5e0c")
 	)
 	(label "Sine1_Out"
-		(at 341.63 48.26 0)
+		(at 341.63 50.8 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11865,7 +11865,7 @@
 		(uuid "ddbf858d-33a9-4edc-b6db-57dfc59550e0")
 	)
 	(label "Sine3_Out"
-		(at 341.63 45.72 0)
+		(at 341.63 48.26 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11876,7 +11876,7 @@
 		(uuid "de7340b4-5372-4652-93f7-5afdffb03857")
 	)
 	(label "Sine1_Rate"
-		(at 341.63 66.04 0)
+		(at 341.63 60.96 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12008,7 +12008,7 @@
 		(uuid "f2398c2c-517d-46bc-9006-6dcdb84b9d6c")
 	)
 	(label "Sine3_Rate"
-		(at 306.07 124.46 0)
+		(at 306.07 55.88 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12650,7 +12650,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 341.63 60.96 90)
+		(at 341.63 58.42 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12658,7 +12658,7 @@
 		(dnp no)
 		(uuid "1420b674-f272-4af1-8639-be43c8a5363b")
 		(property "Reference" "#PWR01"
-			(at 347.98 60.96 0)
+			(at 347.98 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12667,7 +12667,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 344.932 60.198 90)
+			(at 344.932 57.658 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12676,7 +12676,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 60.96 0)
+			(at 341.63 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12685,7 +12685,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 60.96 0)
+			(at 341.63 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12694,7 +12694,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 341.63 60.96 0)
+			(at 341.63 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14308,7 +14308,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 341.63 129.54 90)
+		(at 341.63 132.08 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14316,7 +14316,7 @@
 		(dnp no)
 		(uuid "2af14861-8713-4408-b6b8-65299c4fcd51")
 		(property "Reference" "#PWR047"
-			(at 347.98 129.54 0)
+			(at 347.98 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14325,7 +14325,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 344.932 129.032 90)
+			(at 344.932 131.572 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14334,7 +14334,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 129.54 0)
+			(at 341.63 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14343,7 +14343,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 129.54 0)
+			(at 341.63 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14352,7 +14352,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 341.63 129.54 0)
+			(at 341.63 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14505,7 +14505,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 341.63 114.3 90)
+		(at 363.22 114.3 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14513,7 +14513,7 @@
 		(dnp no)
 		(uuid "307e8aa4-282b-472e-9738-52d82577d475")
 		(property "Reference" "#PWR033"
-			(at 347.98 114.3 0)
+			(at 369.57 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14522,7 +14522,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 344.678 113.538 90)
+			(at 366.268 113.538 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14531,7 +14531,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 114.3 0)
+			(at 363.22 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14540,7 +14540,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 114.3 0)
+			(at 363.22 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14549,7 +14549,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 341.63 114.3 0)
+			(at 363.22 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15206,7 +15206,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3VA")
-		(at 341.63 58.42 270)
+		(at 341.63 55.88 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15214,7 +15214,7 @@
 		(dnp no)
 		(uuid "34a44d12-6cb2-4467-8792-2dcf056eb1f0")
 		(property "Reference" "#PWR02"
-			(at 337.82 58.42 0)
+			(at 337.82 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15223,7 +15223,7 @@
 			)
 		)
 		(property "Value" "+3.3VA"
-			(at 344.678 57.404 90)
+			(at 344.678 54.864 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15232,7 +15232,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 58.42 0)
+			(at 341.63 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15241,7 +15241,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 58.42 0)
+			(at 341.63 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15250,7 +15250,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
-			(at 341.63 58.42 0)
+			(at 341.63 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15669,7 +15669,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 306.07 60.96 90)
+		(at 306.07 80.01 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15677,7 +15677,7 @@
 		(dnp no)
 		(uuid "3b345bd9-b64d-49f0-b561-20564c2e01fa")
 		(property "Reference" "#PWR045"
-			(at 312.42 60.96 0)
+			(at 312.42 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15686,7 +15686,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 309.118 60.198 90)
+			(at 309.118 76.708 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15695,7 +15695,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 306.07 60.96 0)
+			(at 306.07 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15704,7 +15704,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 306.07 60.96 0)
+			(at 306.07 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15713,7 +15713,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 306.07 60.96 0)
+			(at 306.07 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15938,7 +15938,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 306.07 93.98 90)
+		(at 314.96 81.28 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15946,7 +15946,7 @@
 		(dnp no)
 		(uuid "3dd438cd-dd15-4cf3-9281-79e1446aa42c")
 		(property "Reference" "#PWR030"
-			(at 312.42 93.98 0)
+			(at 321.31 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15955,7 +15955,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 309.626 93.472 90)
+			(at 318.516 80.772 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15964,7 +15964,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 306.07 93.98 0)
+			(at 314.96 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15973,7 +15973,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 306.07 93.98 0)
+			(at 314.96 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15982,7 +15982,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 306.07 93.98 0)
+			(at 314.96 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23014,7 +23014,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 341.63 38.1 90)
+		(at 341.63 40.64 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23022,7 +23022,7 @@
 		(dnp no)
 		(uuid "f1cd91b9-04d3-4769-a5cb-a152f9eb4e53")
 		(property "Reference" "#PWR09"
-			(at 347.98 38.1 0)
+			(at 347.98 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23031,7 +23031,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 344.678 37.338 90)
+			(at 344.678 39.878 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23040,7 +23040,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 38.1 0)
+			(at 341.63 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23049,7 +23049,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 38.1 0)
+			(at 341.63 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23058,7 +23058,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 341.63 38.1 0)
+			(at 341.63 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23145,7 +23145,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 341.63 40.64 270)
+		(at 341.63 43.18 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23153,7 +23153,7 @@
 		(dnp no)
 		(uuid "f2e382b5-8334-4ba7-8395-dd09b899b197")
 		(property "Reference" "#PWR054"
-			(at 337.82 40.64 0)
+			(at 337.82 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23162,7 +23162,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 344.678 39.624 90)
+			(at 344.678 42.164 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23171,7 +23171,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 40.64 0)
+			(at 341.63 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23180,7 +23180,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 40.64 0)
+			(at 341.63 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23189,7 +23189,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 341.63 40.64 0)
+			(at 341.63 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
