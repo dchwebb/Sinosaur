@@ -13626,7 +13626,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 88.9 90)
 			(effects
 				(font
@@ -16020,7 +16020,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 73.66 90)
 			(effects
 				(font
@@ -16161,7 +16161,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 63.5 90)
 			(effects
 				(font
@@ -16733,7 +16733,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 68.58 90)
 			(effects
 				(font
@@ -17800,7 +17800,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 53.34 90)
 			(effects
 				(font
@@ -18619,7 +18619,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 93.98 90)
 			(effects
 				(font
@@ -19535,7 +19535,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 58.42 90)
 			(effects
 				(font
@@ -20216,7 +20216,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 78.74 90)
 			(effects
 				(font
@@ -20876,7 +20876,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 104.14 90)
 			(effects
 				(font
@@ -21317,7 +21317,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 99.06 90)
 			(effects
 				(font
@@ -22078,7 +22078,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k "
 			(at 260.35 83.82 90)
 			(effects
 				(font
@@ -22222,7 +22222,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "1k"
 			(at 260.35 48.26 90)
 			(effects
 				(font

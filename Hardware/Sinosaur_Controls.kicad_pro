@@ -58,9 +58,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        "footprint_type_mismatch|61000000|141000000|17051491-26f4-43f3-9313-56008360ae6a|00000000-0000-0000-0000-000000000000"
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -448,7 +446,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Kishoof_Controls.kicad_pro",
+    "filename": "Sinosaur_Controls.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -606,6 +604,7 @@
   },
   "schematic": {
     "annotate_start_num": 0,
+    "bom_export_filename": "",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
