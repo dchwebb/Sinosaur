@@ -1,26 +1,29 @@
 {
   "board": {
-    "active_layer": 39,
+    "active_layer": 0,
     "active_layer_preset": "",
-    "auto_track_width": true,
+    "auto_track_width": false,
     "hidden_netclasses": [],
-    "hidden_nets": [],
+    "hidden_nets": [
+      "GND"
+    ],
     "high_contrast_mode": 0,
     "net_color_mode": 1,
     "opacity": {
       "images": 0.6,
       "pads": 1.0,
-      "tracks": 1.0,
+      "tracks": 0.7599999904632568,
       "vias": 1.0,
       "zones": 0.6
     },
+    "ratsnest_display_mode": 0,
     "selection_filter": {
-      "dimensions": true,
+      "dimensions": false,
       "footprints": true,
       "graphics": true,
-      "keepouts": true,
-      "lockedItems": false,
-      "otherItems": true,
+      "keepouts": false,
+      "lockedItems": true,
+      "otherItems": false,
       "pads": false,
       "text": true,
       "tracks": true,
@@ -40,8 +43,11 @@
       11,
       12,
       13,
+      14,
       15,
       16,
+      17,
+      18,
       19,
       20,
       21,
@@ -58,10 +64,9 @@
       33,
       34,
       35,
-      36,
-      40
+      36
     ],
-    "visible_layers": "ffcffef_ffffffff",
+    "visible_layers": "ffcfeff_fffffff9",
     "zone_display_mode": 1
   },
   "git": {
@@ -71,7 +76,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "Uncertain_Times_Panel.kicad_prl",
+    "filename": "Uncertain_Times_Components.kicad_prl",
     "version": 3
   },
   "project": {
