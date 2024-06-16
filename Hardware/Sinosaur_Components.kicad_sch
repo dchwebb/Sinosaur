@@ -10534,7 +10534,7 @@
 		(uuid "1cf9d8a7-654b-4a95-a903-ec9dc30f4b7e")
 	)
 	(label "Swell_Level"
-		(at 341.63 66.04 0)
+		(at 306.07 55.88 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10776,13 +10776,13 @@
 		(uuid "3bae056a-c24f-45f8-9412-359f49bcfce1")
 	)
 	(label "Swell_Level"
-		(at 99.06 134.62 0)
+		(at 53.34 116.84 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "4536cbfe-c8e2-4a33-bbe1-ac7a9dec5e6a")
 	)
@@ -11942,13 +11942,13 @@
 		(uuid "e77b7383-8b37-4dd8-8ff6-5cb0c85c9674")
 	)
 	(label "Sine3_Rate"
-		(at 53.34 116.84 180)
+		(at 99.06 134.62 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "e99c5551-a409-4245-a270-95c0e8c27496")
 	)
@@ -12008,7 +12008,7 @@
 		(uuid "f2398c2c-517d-46bc-9006-6dcdb84b9d6c")
 	)
 	(label "Sine3_Rate"
-		(at 306.07 55.88 0)
+		(at 341.63 66.04 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
