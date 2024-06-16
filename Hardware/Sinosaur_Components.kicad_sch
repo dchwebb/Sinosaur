@@ -12096,6 +12096,72 @@
 		(uuid "fe23d700-1125-44a5-93ed-6423ed5904cc")
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 341.63 40.64 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "014ba7c5-d94d-4186-8940-ff88dc511f8c")
+		(property "Reference" "#PWR04"
+			(at 337.82 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 344.678 39.624 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 341.63 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 341.63 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 341.63 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "44b61e63-4405-434c-9a77-619c05740858")
+		)
+		(instances
+			(project "Sinosaur_Components"
+				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
+					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 204.47 38.1 270)
 		(unit 1)
@@ -12157,6 +12223,73 @@
 			(project "Uncertain_Times_Components"
 				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
 					(reference "R15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 306.07 132.08 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "03f4070a-488e-4a0e-a8aa-b2fafa023e7a")
+		(property "Reference" "#PWR030"
+			(at 312.42 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 309.88 132.0799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 306.07 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 306.07 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 306.07 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "813f6044-d3a4-4c60-9660-690967176b08")
+		)
+		(instances
+			(project "Sinosaur_Components"
+				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -15212,6 +15345,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "36dbebf8-cfae-49cf-8260-d4ae14a67607")
 		(property "Reference" "#PWR03"
 			(at 312.42 124.46 0)
@@ -15223,7 +15357,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 309.626 123.698 90)
+			(at 309.88 124.4599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15872,72 +16006,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 341.63 43.18 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3dd438cd-dd15-4cf3-9281-79e1446aa42c")
-		(property "Reference" "#PWR030"
-			(at 347.98 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 345.186 42.672 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 341.63 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 341.63 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 341.63 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "eba8237f-a3cb-47d8-a9e8-b33ac145c4de")
-		)
-		(instances
-			(project "Uncertain_Times_Components"
-				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
-					(reference "#PWR030")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3VA")
 		(at 24.13 53.34 0)
 		(unit 1)
@@ -15998,6 +16066,73 @@
 			(project "Quango_Components"
 				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
 					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 306.07 127 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3e9522ef-6c44-4cca-8fd8-af0eb3ec62b4")
+		(property "Reference" "#PWR05"
+			(at 312.42 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 309.88 126.9999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 306.07 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 306.07 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 306.07 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "51addf78-8722-4dca-8b5d-8c028c8d344a")
+		)
+		(instances
+			(project "Sinosaur_Components"
+				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -22883,7 +23018,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 341.63 40.64 90)
+		(at 341.63 43.18 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -22891,7 +23026,7 @@
 		(dnp no)
 		(uuid "f1cd91b9-04d3-4769-a5cb-a152f9eb4e53")
 		(property "Reference" "#PWR09"
-			(at 347.98 40.64 0)
+			(at 347.98 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22900,7 +23035,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 344.678 39.878 90)
+			(at 344.678 42.418 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22909,7 +23044,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 40.64 0)
+			(at 341.63 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22918,7 +23053,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 40.64 0)
+			(at 341.63 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22927,7 +23062,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 341.63 40.64 0)
+			(at 341.63 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23007,72 +23142,6 @@
 			(project "Quango_Components"
 				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
 					(reference "#PWR026")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 306.07 127 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f2e382b5-8334-4ba7-8395-dd09b899b197")
-		(property "Reference" "#PWR054"
-			(at 302.26 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 309.118 125.984 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 306.07 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 306.07 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 306.07 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "26216c63-8ba2-4d3b-ad41-1479d0866309")
-		)
-		(instances
-			(project "Uncertain_Times_Components"
-				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
-					(reference "#PWR054")
 					(unit 1)
 				)
 			)

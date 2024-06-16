@@ -1315,22 +1315,23 @@
 				)
 			)
 		)
-		(symbol "Device:LED_BGAR"
+		(symbol "Device:LED_Dual_KAK"
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "D"
-				(at 0 9.398 0)
+				(at 0 5.715 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "LED_BGAR"
-				(at 0 -8.89 0)
+			(property "Value" "LED_Dual_KAK"
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1338,7 +1339,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 0 -1.27 0)
+				(at 1.27 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1347,7 +1348,7 @@
 				)
 			)
 			(property "Datasheet" "~"
-				(at 0 -1.27 0)
+				(at 1.27 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1355,7 +1356,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "RGB LED, blue/green/anode/red"
+			(property "Description" "Dual LED, common anode on pin 2"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1364,7 +1365,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "LED RGB diode"
+			(property "ki_keywords" "LED diode bicolor dual"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1382,36 +1383,21 @@
 					(hide yes)
 				)
 			)
-			(symbol "LED_BGAR_0_0"
-				(text "B"
-					(at -1.905 -6.35 0)
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
+			(symbol "LED_Dual_KAK_0_1"
+				(circle
+					(center -2.54 0)
+					(radius 0.2794)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
 					)
 				)
-				(text "G"
-					(at -1.905 -1.27 0)
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(text "R"
-					(at -1.905 3.81 0)
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(symbol "LED_BGAR_0_1"
 				(polyline
 					(pts
-						(xy -1.27 -5.08) (xy -2.54 -5.08)
+						(xy -4.572 0) (xy -2.54 0)
 					)
 					(stroke
 						(width 0)
@@ -1423,19 +1409,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 -5.08) (xy 1.27 -5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -3.81) (xy -1.27 -6.35)
+						(xy 1.27 -1.27) (xy 1.27 -3.81)
 					)
 					(stroke
 						(width 0.254)
@@ -1447,19 +1421,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 1.27) (xy -1.27 -1.27)
+						(xy 1.27 3.81) (xy 1.27 1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -1471,7 +1433,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 5.08) (xy -2.54 5.08)
+						(xy 3.81 -2.54) (xy 1.905 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -1483,7 +1445,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 5.08) (xy 1.27 5.08)
+						(xy 3.81 2.54) (xy 1.905 2.54)
 					)
 					(stroke
 						(width 0)
@@ -1495,7 +1457,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 6.35) (xy -1.27 3.81)
+						(xy -1.27 -1.27) (xy -1.27 -3.81) (xy 1.27 -2.54) (xy -1.27 -1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -1507,67 +1469,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 0) (xy -1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 1.27) (xy -1.27 -1.27) (xy -1.27 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 6.35) (xy -1.27 3.81) (xy -1.27 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -5.08) (xy 2.032 -5.08) (xy 2.032 5.08) (xy 1.27 5.08)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -3.81) (xy 1.27 -6.35) (xy -1.27 -5.08) (xy 1.27 -3.81)
+						(xy -1.27 3.81) (xy -1.27 1.27) (xy 1.27 2.54) (xy -1.27 3.81)
 					)
 					(stroke
 						(width 0.254)
@@ -1579,31 +1481,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 6.35) (xy 1.27 3.81) (xy -1.27 5.08) (xy 1.27 6.35)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.508 -2.286) (xy -0.254 -2.286) (xy 0.508 -2.286) (xy 0.508 -3.048)
+						(xy 2.032 2.54) (xy -2.54 2.54) (xy -2.54 -2.54) (xy 2.032 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -1615,7 +1493,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.016 1.27) (xy 0.508 2.794) (xy -0.254 2.794) (xy 0.508 2.794) (xy 0.508 2.032)
+						(xy 2.032 5.08) (xy 3.556 6.604) (xy 2.794 6.604) (xy 3.556 6.604) (xy 3.556 5.842)
 					)
 					(stroke
 						(width 0)
@@ -1627,88 +1505,8 @@
 				)
 				(polyline
 					(pts
-						(xy -1.016 6.35) (xy 0.508 7.874) (xy -0.254 7.874) (xy 0.508 7.874) (xy 0.508 7.112)
+						(xy 3.302 4.064) (xy 4.826 5.588) (xy 4.064 5.588) (xy 4.826 5.588) (xy 4.826 4.826)
 					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -3.81) (xy 1.524 -2.286) (xy 0.762 -2.286) (xy 1.524 -2.286) (xy 1.524 -3.048)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.27) (xy 1.524 2.794) (xy 0.762 2.794) (xy 1.524 2.794) (xy 1.524 2.032)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 6.35) (xy 1.524 7.874) (xy 0.762 7.874) (xy 1.524 7.874) (xy 1.524 7.112)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 1.27 -1.27)
-					(end 1.27 1.27)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 1.27 1.27)
-					(end 1.27 1.27)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 1.27 3.81)
-					(end 1.27 6.35)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 1.27 6.35)
-					(end 1.27 6.35)
 					(stroke
 						(width 0)
 						(type default)
@@ -1718,19 +1516,8 @@
 					)
 				)
 				(circle
-					(center 2.032 0)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 2.794 8.382)
-					(end -2.794 -7.62)
+					(center 0 0)
+					(radius 4.572)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -1740,11 +1527,11 @@
 					)
 				)
 			)
-			(symbol "LED_BGAR_1_1"
-				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 2.54)
-					(name "BK"
+			(symbol "LED_Dual_KAK_1_1"
+				(pin input line
+					(at 7.62 2.54 180)
+					(length 3.81)
+					(name "K1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1759,10 +1546,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "GK"
+				(pin input line
+					(at -7.62 0 0)
+					(length 3.048)
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1777,10 +1564,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "A"
+				(pin input line
+					(at 7.62 -2.54 180)
+					(length 3.81)
+					(name "K2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1788,24 +1575,6 @@
 						)
 					)
 					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 5.08 0)
-					(length 2.54)
-					(name "RK"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3008,10 +2777,6 @@
 		(uuid "3aed8041-979e-4419-8742-e3e24151cc63")
 	)
 	(no_connect
-		(at 101.6 -22.86)
-		(uuid "3cbb9da6-6bd8-4d03-b69a-ec4c1c95bf5d")
-	)
-	(no_connect
 		(at 30.48 97.79)
 		(uuid "5124d3bc-8262-402d-9aa2-f82e555c4f1e")
 	)
@@ -3024,28 +2789,8 @@
 		(uuid "68de2e95-9742-4864-add0-b38dbec56fff")
 	)
 	(no_connect
-		(at 58.42 -24.13)
-		(uuid "6dc79728-5398-4212-b15c-44e310bfa4d5")
-	)
-	(no_connect
-		(at 146.05 2.54)
-		(uuid "6f42b9d3-830e-4079-adfa-76f5975515c1")
-	)
-	(no_connect
-		(at 101.6 0)
-		(uuid "9b72e84c-95c8-4024-95dc-a175d953eeb4")
-	)
-	(no_connect
-		(at 146.05 -20.32)
-		(uuid "c4cdb98e-9b45-4c47-8a27-faa30cead709")
-	)
-	(no_connect
 		(at 67.31 97.79)
 		(uuid "d0816117-dd23-4cfc-86f8-ebcde8c29200")
-	)
-	(no_connect
-		(at 58.42 -1.27)
-		(uuid "dafb0b1c-e605-4fae-91d2-83587181b783")
 	)
 	(no_connect
 		(at 67.31 73.66)
@@ -3982,6 +3727,16 @@
 		)
 		(uuid "3684ba40-95fc-4b3d-83dd-c4c4a8beef4f")
 	)
+	(text "Using 4 pin RGB LED - cut green pin"
+		(exclude_from_sim no)
+		(at 32.766 -27.686 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "974e6d64-8549-49c1-a382-66f82bf3ed53")
+	)
 	(text "Connectors"
 		(exclude_from_sim no)
 		(at 204.47 140.97 0)
@@ -4097,13 +3852,13 @@
 		(uuid "0d67a8a2-a852-4e96-9764-6d9b0b387170")
 	)
 	(label "Sine1_Ramp_Lvl_LED"
-		(at 58.42 3.81 180)
+		(at -16.51 -41.91 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "0de96483-46d0-4e10-8bfa-804ac87401a4")
 	)
@@ -4119,24 +3874,24 @@
 		(uuid "0e155ded-1d2e-4350-9717-68beff2f6985")
 	)
 	(label "Sine2_Swell_Lvl_LED"
-		(at 101.6 -5.08 180)
+		(at 33.02 -36.83 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "0e3b0e64-c8b3-423c-96fd-4308ab58202f")
 	)
 	(label "Sine3_Ramp_Rate_LED"
-		(at 146.05 -15.24 180)
+		(at 81.28 -59.69 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "0e9f094a-3b56-4e63-990d-922dc477e035")
 	)
@@ -4163,13 +3918,13 @@
 		(uuid "1a00331b-d6e7-4f4b-8f6a-09466ab6cfa8")
 	)
 	(label "Sine2_Ramp_Lvl_LED"
-		(at 101.6 5.08 180)
+		(at 33.02 -41.91 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "1c6b969b-3eb4-4e38-841b-26069fa1afbc")
 	)
@@ -4185,13 +3940,13 @@
 		(uuid "1e1d09f1-9d9c-4bbd-8d61-bb5b1b7c94c9")
 	)
 	(label "Sine2_Swell_Rate_LED"
-		(at 101.6 -27.94 180)
+		(at 33.02 -54.61 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "1e79b1f3-eb82-4b43-823d-f993c8454290")
 	)
@@ -4262,24 +4017,24 @@
 		(uuid "398453cf-3b9c-4c39-bbe1-3cd3601fbdd3")
 	)
 	(label "Sine2_Ramp_Rate_LED"
-		(at 101.6 -17.78 180)
+		(at 33.02 -59.69 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "41cff343-555f-4ed2-9a75-d22aa3fc631b")
 	)
 	(label "Sine3_Ramp_Lvl_LED"
-		(at 146.05 7.62 180)
+		(at 81.28 -41.91 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "42f13bbd-6ce1-4ea8-9af7-9c744b64e26b")
 	)
@@ -4328,13 +4083,13 @@
 		(uuid "4ce50952-441a-4d8c-b79f-c77cb198a2cc")
 	)
 	(label "Sine1_Swell_Rate_LED"
-		(at 58.42 -29.21 180)
+		(at -16.51 -54.61 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "4eb0bfbb-2ee9-4f19-8e1f-fc9935b27cdd")
 	)
@@ -4372,13 +4127,13 @@
 		(uuid "572a5def-7d1b-42fe-94da-b88919a83dc3")
 	)
 	(label "Sine3_Swell_Lvl_LED"
-		(at 146.05 -2.54 180)
+		(at 81.28 -36.83 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "67601e7f-37dd-4b14-b108-3ff27ce1dc49")
 	)
@@ -4405,13 +4160,13 @@
 		(uuid "6ce83d2e-6351-4b33-a65c-351c1134fef0")
 	)
 	(label "Sine3_Swell_Rate_LED"
-		(at 146.05 -25.4 180)
+		(at 81.28 -54.61 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "6dbf4bfd-843f-4e7c-90e8-1d47d5a8b9c6")
 	)
@@ -4493,13 +4248,13 @@
 		(uuid "7ea9c1dc-933a-445d-bdf8-6367cf578454")
 	)
 	(label "Sine1_Ramp_Rate_LED"
-		(at 58.42 -19.05 180)
+		(at -16.51 -59.69 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "810b1dae-70d0-4058-9f38-61d7ff828254")
 	)
@@ -4647,13 +4402,13 @@
 		(uuid "a08cd7bd-ebe5-4c01-82dc-8625a2abc359")
 	)
 	(label "Sine1_Swell_Lvl_LED"
-		(at 58.42 -6.35 180)
+		(at -16.51 -36.83 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "a0b63ca7-b583-4d6d-ac24-c15ec81108e4")
 	)
@@ -4989,7 +4744,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 68.58 -24.13 270)
+		(at -31.75 -57.15 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4997,7 +4752,7 @@
 		(dnp no)
 		(uuid "00379886-577a-4215-bed5-75ee80f2445f")
 		(property "Reference" "#PWR056"
-			(at 64.77 -24.13 0)
+			(at -27.94 -57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5006,7 +4761,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 71.628 -25.146 90)
+			(at -34.798 -56.134 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5015,7 +4770,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 68.58 -24.13 0)
+			(at -31.75 -57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5024,7 +4779,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 68.58 -24.13 0)
+			(at -31.75 -57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5033,7 +4788,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 68.58 -24.13 0)
+			(at -31.75 -57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5113,72 +4868,6 @@
 			(project "Sinosaur_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
 					(reference "#PWR0104")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 111.76 0 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0347ef37-03e6-4b51-8b14-81f191744223")
-		(property "Reference" "#PWR059"
-			(at 107.95 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 114.808 -1.016 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 111.76 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 111.76 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 111.76 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d6617c4d-26dc-400d-a71e-3cbe2792e506")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "#PWR059")
 					(unit 1)
 				)
 			)
@@ -5450,72 +5139,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 156.21 -20.32 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0bd6365d-eae1-4640-8b46-08afdcbd56ea")
-		(property "Reference" "#PWR060"
-			(at 152.4 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 159.258 -21.336 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 156.21 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 156.21 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 156.21 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6855f70e-86fc-4e94-865c-a8c2da641b93")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "#PWR060")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3VA")
 		(at 163.83 63.5 0)
 		(unit 1)
@@ -5781,6 +5404,138 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
+		(at 66.04 -57.15 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1a86f8df-a76b-4145-a5d8-42050190f9c9")
+		(property "Reference" "#PWR07"
+			(at 69.85 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 62.992 -56.134 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 66.04 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 66.04 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 66.04 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "443a9979-ed6c-4847-90c8-8f5affc7f99f")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 17.78 -57.15 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1a99f247-0410-444b-a79e-dd20fc94d953")
+		(property "Reference" "#PWR05"
+			(at 21.59 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 14.732 -56.134 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 17.78 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 17.78 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 17.78 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f5ea0e27-c5f6-443f-82f3-a979fcffe93d")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
 		(at 156.21 182.88 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5841,6 +5596,77 @@
 			(project "Kishoof_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
 					(reference "#PWR038")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Dual_KAK")
+		(at 73.66 -57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1d019de2-7381-433e-82a7-b20956b93592")
+		(property "Reference" "D10"
+			(at 73.7235 -67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Dual_KAK"
+			(at 73.7235 -64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm-3"
+			(at 74.93 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 74.93 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual LED, common anode on pin 2"
+			(at 73.66 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "1070db83-1806-4b35-9b24-2f5ce823220c")
+		)
+		(pin "2"
+			(uuid "a35fb7f0-4c69-42fa-b25e-4b17a1981f1f")
+		)
+		(pin "1"
+			(uuid "10efaa5a-8141-49ad-b729-75808ce46857")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "D10")
 					(unit 1)
 				)
 			)
@@ -7101,6 +6927,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 66.04 -39.37 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2f17685b-cbf7-4a5a-9c9f-f7c1367bd23d")
+		(property "Reference" "#PWR025"
+			(at 69.85 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 62.992 -38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 66.04 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 66.04 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 66.04 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6108ba24-a131-4eb4-a032-c08124c1a65c")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "thonkiconn:AudioJack2_Ground_Switch")
 		(at 25.4 95.25 0)
 		(unit 1)
@@ -7345,7 +7237,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm_FlatTop"
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm"
 			(at 321.31 118.11 90)
 			(effects
 				(font
@@ -7493,7 +7385,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm_FlatTop"
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm"
 			(at 321.31 111.76 90)
 			(effects
 				(font
@@ -8069,298 +7961,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_BGAR")
-		(at 106.68 -22.86 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4f61f92b-987b-4b3c-b4fc-1142656b9f8a")
-		(property "Reference" "D8"
-			(at 106.68 -35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_BGAR"
-			(at 106.68 -33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_THT:LED_D5.0mm-4_RGB"
-			(at 106.68 -21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 106.68 -21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RGB LED, blue/green/anode/red"
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "AVAILABILITY" ""
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DESCRIPTION" ""
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE" ""
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PRICE" ""
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PURCHASE-URL" ""
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part_Number" ""
-			(at 106.68 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7e781d65-4697-44c4-a073-2e82369b015b")
-		)
-		(pin "4"
-			(uuid "6e92f5b2-809e-4a23-8a3d-8f6f53c7ec2b")
-		)
-		(pin "1"
-			(uuid "6ebceea7-f688-43ef-91e5-3aa06566b663")
-		)
-		(pin "3"
-			(uuid "08c8f886-4b10-4284-bc97-b84ba210c34b")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "D8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_BGAR")
-		(at 151.13 -20.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4fe69d56-4ce2-4945-81ee-793b574a0275")
-		(property "Reference" "D10"
-			(at 151.13 -33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_BGAR"
-			(at 151.13 -30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_THT:LED_D5.0mm-4_RGB"
-			(at 151.13 -19.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 151.13 -19.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RGB LED, blue/green/anode/red"
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "AVAILABILITY" ""
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DESCRIPTION" ""
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE" ""
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PRICE" ""
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PURCHASE-URL" ""
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part_Number" ""
-			(at 151.13 -20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "94504a0d-1b94-47a0-a35b-e8a98cd81a3f")
-		)
-		(pin "4"
-			(uuid "98f9a71e-722e-48e2-b41a-5466f471fabe")
-		)
-		(pin "1"
-			(uuid "7ffad818-f810-411f-92db-fa1c052840a3")
-		)
-		(pin "3"
-			(uuid "962f30bc-e8fa-46b0-bbab-7701afbf3695")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "D10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Mountjoy:Switch_Potentiometer")
 		(at 116.84 30.48 0)
 		(unit 1)
@@ -8668,6 +8268,139 @@
 			(project "Kishoof_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
 					(reference "Ramp_Level_Trm1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 17.78 -39.37 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "52ec65e3-98c2-4534-8a53-71c6d35c9608")
+		(property "Reference" "#PWR06"
+			(at 21.59 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 14.732 -38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 17.78 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 17.78 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 17.78 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "27c3c6ea-d48e-40ef-8ecd-675baff4fa81")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "#PWR06")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 219.71 114.3 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "54de077a-f778-468d-9fdf-adca14cb61f2")
+		(property "Reference" "#PWR03"
+			(at 226.06 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 223.52 114.2999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 219.71 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 219.71 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 219.71 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4c08b0c4-6b17-4e95-b97e-4eecf6c66061")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -9402,6 +9135,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at -31.75 -39.37 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "63475d44-f31e-49ff-9645-7623ef1e9fe6")
+		(property "Reference" "#PWR04"
+			(at -27.94 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at -34.798 -38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at -31.75 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at -31.75 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at -31.75 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9f936bee-86c9-462e-863a-3769966c9993")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "thonkiconn:AudioJack2_Ground_Switch")
 		(at 62.23 71.12 0)
 		(unit 1)
@@ -9619,152 +9418,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_BGAR")
-		(at 63.5 -24.13 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "72a760c6-0bde-437e-a9dc-882fe7ca9b6a")
-		(property "Reference" "D6"
-			(at 63.5 -36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_BGAR"
-			(at 63.5 -34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_THT:LED_D5.0mm-4_RGB"
-			(at 63.5 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 63.5 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RGB LED, blue/green/anode/red"
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "AVAILABILITY" ""
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DESCRIPTION" ""
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE" ""
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PRICE" ""
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PURCHASE-URL" ""
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part_Number" ""
-			(at 63.5 -24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "f605f4ee-eab5-4bf6-8866-34aee6d7009c")
-		)
-		(pin "4"
-			(uuid "b8147ef9-c0f9-42e8-bfa4-fc394ef53f2e")
-		)
-		(pin "1"
-			(uuid "24aea140-340b-4727-bfbc-b189de6d8f37")
-		)
-		(pin "3"
-			(uuid "09cd2986-205c-437d-9431-df1a7629b7ae")
-		)
-		(instances
-			(project ""
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "D6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 255.27 93.98 90)
 		(unit 1)
@@ -9825,6 +9478,77 @@
 			(project "Sinosaur_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
 					(reference "#PWR031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Dual_KAK")
+		(at -24.13 -39.37 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7c48c10b-a755-4542-a4ca-a0ed886b61a3")
+		(property "Reference" "D7"
+			(at -24.0665 -49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Dual_KAK"
+			(at -24.0665 -46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm-3"
+			(at -22.86 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at -22.86 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual LED, common anode on pin 2"
+			(at -24.13 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "83f01698-e50d-4836-84df-96b1434dffc7")
+		)
+		(pin "2"
+			(uuid "c8a173fc-5cb7-4fd7-9de5-b27c924284ba")
+		)
+		(pin "1"
+			(uuid "43684062-f629-4294-967f-20fe592f5305")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "D7")
 					(unit 1)
 				)
 			)
@@ -9983,15 +9707,15 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 68.58 -1.27 270)
+		(at 255.27 30.48 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8197dc27-f294-4830-be0b-6d79a83d2b56")
-		(property "Reference" "#PWR057"
-			(at 64.77 -1.27 0)
+		(uuid "80dbde22-9ab8-4eaa-9b57-1c137b0b969b")
+		(property "Reference" "#PWR01"
+			(at 251.46 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10000,7 +9724,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 71.628 -2.286 90)
+			(at 258.318 29.464 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10009,7 +9733,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 68.58 -1.27 0)
+			(at 255.27 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10018,7 +9742,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 68.58 -1.27 0)
+			(at 255.27 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10027,7 +9751,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 68.58 -1.27 0)
+			(at 255.27 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10036,12 +9760,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "c39ae51e-d8d1-434f-802d-c229f9a1fc86")
+			(uuid "97415e68-efd2-475e-9224-0be11ecc7920")
 		)
 		(instances
 			(project "Sinosaur_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "#PWR057")
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -10388,7 +10112,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm_FlatTop"
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm"
 			(at 321.31 105.41 90)
 			(effects
 				(font
@@ -10506,152 +10230,6 @@
 			(project "Sinosaur_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
 					(reference "D3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_BGAR")
-		(at 106.68 0 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8588e3ec-d7bc-4dd6-a96a-1c9991095d37")
-		(property "Reference" "D9"
-			(at 106.68 -12.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_BGAR"
-			(at 106.68 -10.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_THT:LED_D5.0mm-4_RGB"
-			(at 106.68 1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 106.68 1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RGB LED, blue/green/anode/red"
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "AVAILABILITY" ""
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DESCRIPTION" ""
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE" ""
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PRICE" ""
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PURCHASE-URL" ""
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part_Number" ""
-			(at 106.68 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2862a5fa-6fb3-4e19-b15f-052185acfb79")
-		)
-		(pin "4"
-			(uuid "6c922aa6-58d7-4102-a1d1-1b0a0eb51820")
-		)
-		(pin "1"
-			(uuid "f4a8a90a-e4da-4fda-a1d5-a929b298f9c7")
-		)
-		(pin "3"
-			(uuid "b1d32773-a66a-4424-99f7-3664637bc953")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "D9")
 					(unit 1)
 				)
 			)
@@ -10945,6 +10523,73 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 219.71 109.22 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8b7a60f7-013c-4013-8dfb-9755855bfd2a")
+		(property "Reference" "#PWR02"
+			(at 226.06 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 223.52 109.2199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 219.71 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 219.71 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 219.71 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0cf1e5bd-4de1-4528-8b44-33dae055a554")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 219.71 111.76 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11077,6 +10722,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:LED_Dual_KAK")
+		(at 25.4 -39.37 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8f613106-93dc-4260-a59c-6ad6a06d6cef")
+		(property "Reference" "D9"
+			(at 25.4635 -49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Dual_KAK"
+			(at 25.4635 -46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm-3"
+			(at 26.67 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 26.67 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual LED, common anode on pin 2"
+			(at 25.4 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "f88c525f-f683-4936-b18a-f26e337cbd1a")
+		)
+		(pin "2"
+			(uuid "7b56f672-997d-49ef-b89b-df7fafeacbea")
+		)
+		(pin "1"
+			(uuid "808768f4-13de-42ba-8109-b90a6cc344be")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "D9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3VA")
 		(at 116.84 101.6 0)
 		(unit 1)
@@ -11166,7 +10882,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm_FlatTop"
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm"
 			(at 321.31 92.71 90)
 			(effects
 				(font
@@ -11424,6 +11140,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:LED_Dual_KAK")
+		(at 25.4 -57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9ce89642-fdcc-45af-a751-7bf39b9d3dcb")
+		(property "Reference" "D8"
+			(at 25.4635 -67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Dual_KAK"
+			(at 25.4635 -64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm-3"
+			(at 26.67 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 26.67 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual LED, common anode on pin 2"
+			(at 25.4 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "a2ebf0f2-50c2-449b-bad9-95148d7a9b86")
+		)
+		(pin "2"
+			(uuid "61d935cf-c04b-486a-8a25-bbe85d262fb9")
+		)
+		(pin "1"
+			(uuid "7a5c6213-ad47-47a2-8ac2-8938a564265c")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "D8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 219.71 106.68 90)
 		(unit 1)
@@ -11431,6 +11218,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "9e08ae97-20e4-4a76-a0f8-74a8980b09f6")
 		(property "Reference" "#PWR023"
 			(at 226.06 106.68 0)
@@ -11442,7 +11230,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 223.266 105.918 90)
+			(at 223.52 106.6799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11484,6 +11272,77 @@
 			(project "Sinosaur_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
 					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Dual_KAK")
+		(at 73.66 -39.37 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9f28b2b1-7c17-4521-9590-be285c9aea39")
+		(property "Reference" "D11"
+			(at 73.7235 -49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Dual_KAK"
+			(at 73.7235 -46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm-3"
+			(at 74.93 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 74.93 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual LED, common anode on pin 2"
+			(at 73.66 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "dc3987bd-0dfd-4749-9e3a-23993756b61d")
+		)
+		(pin "2"
+			(uuid "bef8c6df-caec-4d81-a795-8e5e67a17f74")
+		)
+		(pin "1"
+			(uuid "0a672b23-43da-49b5-b2eb-e6b19e8f094f")
+		)
+		(instances
+			(project "Sinosaur_Controls"
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "D11")
 					(unit 1)
 				)
 			)
@@ -12204,152 +12063,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_BGAR")
-		(at 63.5 -1.27 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b2f61e3e-14dc-47c1-9e92-0276a80bb256")
-		(property "Reference" "D7"
-			(at 63.5 -13.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_BGAR"
-			(at 63.5 -11.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_THT:LED_D5.0mm-4_RGB"
-			(at 63.5 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 63.5 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RGB LED, blue/green/anode/red"
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "AVAILABILITY" ""
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DESCRIPTION" ""
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE" ""
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PRICE" ""
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PURCHASE-URL" ""
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part_Number" ""
-			(at 63.5 -1.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7f7bbadf-b5c5-4afa-91ef-226a92e80985")
-		)
-		(pin "4"
-			(uuid "ee07ca6d-2b2b-4430-92a6-7cbeba5f6a96")
-		)
-		(pin "1"
-			(uuid "4ee33a5f-bc57-4bbb-8823-41846db6fc03")
-		)
-		(pin "3"
-			(uuid "46e9d652-ffab-4c63-a7ea-4855ab58b45a")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "D7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 69.85 33.02 0)
 		(unit 1)
@@ -12707,72 +12420,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 219.71 109.22 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c6b48f28-d411-4c30-b930-24055d424788")
-		(property "Reference" "#PWR025"
-			(at 215.9 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 222.758 108.204 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 219.71 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 219.71 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 219.71 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dd046f58-094d-4326-b7c3-b8bcfacabb6d")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "#PWR025")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 156.21 180.34 90)
 		(unit 1)
@@ -13041,7 +12688,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 255.27 30.48 90)
+		(at 255.27 33.02 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13049,7 +12696,7 @@
 		(dnp no)
 		(uuid "cb5318c6-ec8d-4661-8327-7d27e9b1e2c9")
 		(property "Reference" "#PWR027"
-			(at 261.62 30.48 0)
+			(at 261.62 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13058,7 +12705,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 258.318 29.718 90)
+			(at 258.318 32.258 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13067,7 +12714,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 255.27 30.48 0)
+			(at 255.27 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13076,7 +12723,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 255.27 30.48 0)
+			(at 255.27 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13085,7 +12732,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 255.27 30.48 0)
+			(at 255.27 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13352,6 +12999,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:LED_Dual_KAK")
+		(at -24.13 -57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d8198379-e307-4c9e-a5bc-e948d3b5837e")
+		(property "Reference" "D6"
+			(at -24.0665 -67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Dual_KAK"
+			(at -24.0665 -64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm-3"
+			(at -22.86 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at -22.86 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual LED, common anode on pin 2"
+			(at -24.13 -57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "a9e2e1ce-fa4f-4394-a638-e96a6cc3634e")
+		)
+		(pin "2"
+			(uuid "8bef4a46-abd9-4d8f-9e1f-3df8e2aaf374")
+		)
+		(pin "1"
+			(uuid "4d3c8329-39aa-4000-87c1-0dbb6819822a")
+		)
+		(instances
+			(project ""
+				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
+					(reference "D6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 163.83 35.56 0)
 		(mirror y)
@@ -13550,152 +13268,6 @@
 			(project "Sinosaur_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
 					(reference "#PWR016")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_BGAR")
-		(at 151.13 2.54 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "dd73d283-0b3b-40e3-9e1f-0f6eb2672694")
-		(property "Reference" "D11"
-			(at 151.13 -10.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_BGAR"
-			(at 151.13 -7.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_THT:LED_D5.0mm-4_RGB"
-			(at 151.13 3.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 151.13 3.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RGB LED, blue/green/anode/red"
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "AVAILABILITY" ""
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DESCRIPTION" ""
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" ""
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MP" ""
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE" ""
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PRICE" ""
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PURCHASE-URL" ""
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part_Number" ""
-			(at 151.13 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "9e401a19-8194-40a2-adf4-1e091765e2de")
-		)
-		(pin "4"
-			(uuid "59a6e65e-d5ca-4da0-b4fe-1369fa272f92")
-		)
-		(pin "1"
-			(uuid "c617ce83-e5d5-47ec-a2f3-ce45d0ae8842")
-		)
-		(pin "3"
-			(uuid "ad523553-0002-47c8-9d1e-b02d4d4fbb21")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "D11")
 					(unit 1)
 				)
 			)
@@ -14501,7 +14073,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D3.0mm_FlatTop"
+		(property "Footprint" "Custom_Footprints:LED_D3.0mm"
 			(at 321.31 99.06 90)
 			(effects
 				(font
@@ -14619,204 +14191,6 @@
 			(project "Sinosaur_Controls"
 				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
 					(reference "D2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 156.21 2.54 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ec6d802a-769f-4245-8d9a-791e7c0a8bff")
-		(property "Reference" "#PWR061"
-			(at 152.4 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 159.258 1.524 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 156.21 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 156.21 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 156.21 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5db70b1f-e026-4844-907d-7f19d3cdd6a6")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "#PWR061")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 111.76 -22.86 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ee9cf0fd-be1c-459d-9a29-314bdd1b1a5a")
-		(property "Reference" "#PWR058"
-			(at 107.95 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 114.808 -23.876 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 111.76 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 111.76 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 111.76 -22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b063b8ca-f32c-41ea-9179-d60b682c5a7d")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "#PWR058")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 255.27 33.02 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ef1abff9-5617-41cc-a0f7-ff004d0f52b1")
-		(property "Reference" "#PWR028"
-			(at 261.62 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 258.826 32.512 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 255.27 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 255.27 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 255.27 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fbc0a16a-c012-4cbe-b0c4-d7cea9c4fa44")
-		)
-		(instances
-			(project "Sinosaur_Controls"
-				(path "/00778401-a8b8-4a7c-bae7-c4fa7505df01"
-					(reference "#PWR028")
 					(unit 1)
 				)
 			)
