@@ -7752,7 +7752,7 @@
 		(uuid "36c087a1-c24e-44e4-9059-18cb0074ad36")
 	)
 	(no_connect
-		(at 53.34 78.74)
+		(at 99.06 167.64)
 		(uuid "3d62b192-63cc-43dc-bb93-7d49415c3ef8")
 	)
 	(no_connect
@@ -10241,7 +10241,7 @@
 		)
 		(uuid "47505cfe-faa3-499d-91c2-ccb35ca49a42")
 	)
-	(text "Gain: 3.3 * (1 + 10k / 10k) = 6.6V\nInverting: 3.3 * (20k / 10k) = -6.6V"
+	(text "Gain: 3.3 * (1 + 10k / 10k) = 6.6V\nInverting: 3.3 * (-20k / 10k) = -6.6V"
 		(exclude_from_sim no)
 		(at 189.738 180.34 0)
 		(effects
@@ -11007,13 +11007,13 @@
 		(uuid "66f4502c-148b-4557-8d36-8bf2783ee591")
 	)
 	(label "Sine3_Swell_Rate"
-		(at 99.06 167.64 0)
+		(at 53.34 78.74 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "695d8184-c6de-40ba-9064-7629ff395f16")
 	)
@@ -12872,7 +12872,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 149.86 27.94 0)
 			(effects
 				(font
@@ -13089,7 +13089,7 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "16ff65ff-c006-4b1a-a759-716e0e7dcda1")
@@ -13505,7 +13505,7 @@
 		(at 336.55 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "1b8eee1a-6794-487d-8157-0bd7124522a8")
@@ -13615,7 +13615,7 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "1bb5aef1-3a84-4055-bd69-b71df7e9fe50")
@@ -14101,7 +14101,7 @@
 		(at 300.99 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "2750e102-8331-4c32-ba06-9f16234d40c3")
@@ -14361,7 +14361,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 149.86 134.62 0)
 			(effects
 				(font
@@ -14458,7 +14458,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 344.932 111.252 90)
+			(at 344.678 110.998 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14706,7 +14706,7 @@
 		(at 337.82 156.21 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "322ca94e-e76d-4856-b796-c5abaf1488f9")
@@ -14780,7 +14780,7 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "32966008-080b-4b6d-b18a-76f78de3a39e")
@@ -15429,7 +15429,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 203.2 62.23 0)
 			(effects
 				(font
@@ -17086,7 +17086,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 149.86 62.23 0)
 			(effects
 				(font
@@ -17442,7 +17442,7 @@
 		(at 300.99 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "6b70f90f-66f8-4128-85f5-837f49c832ab")
@@ -17574,7 +17574,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 152.4 210.82 0)
 			(effects
 				(font
@@ -17790,7 +17790,7 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "6f6acf22-09a4-4af0-8e4d-6e865dd277be")
@@ -18184,6 +18184,72 @@
 			(project "Uncertain_Times_Components"
 				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
 					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 210.82 209.55 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "79038a46-8b21-4318-833b-49ba7cb9d20b")
+		(property "Reference" "#PWR054"
+			(at 217.17 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 214.63 209.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 210.82 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 210.82 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 210.82 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e2e109f3-3982-40e2-bb63-2f3bae54dbad")
+		)
+		(instances
+			(project "Sinosaur_Components"
+				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
+					(reference "#PWR054")
 					(unit 1)
 				)
 			)
@@ -18951,7 +19017,7 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "928f3dda-d8e1-4487-a28c-8e719cefdb68")
@@ -19969,14 +20035,16 @@
 	(symbol
 		(lib_id "Amplifier_Operational:TL074")
 		(at 204.47 144.78 0)
+		(mirror x)
 		(unit 3)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "a5757a99-044c-47b3-beab-151029733966")
 		(property "Reference" "U4"
-			(at 204.47 135.4582 0)
+			(at 204.47 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19984,15 +20052,15 @@
 			)
 		)
 		(property "Value" "TL074"
-			(at 204.47 137.7696 0)
+			(at 204.47 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
-			(at 203.2 142.24 0)
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+			(at 203.2 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20001,7 +20069,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf"
-			(at 205.74 139.7 0)
+			(at 205.74 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20679,7 +20747,7 @@
 		(at 336.55 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "bb270973-3a4d-4939-9c4f-97caedc10b90")
@@ -21696,7 +21764,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 176.53 210.82 0)
 			(effects
 				(font
@@ -21923,7 +21991,7 @@
 		(at 311.15 157.48 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "d62e95ee-927e-4b16-bb64-6c73198f4503")
@@ -22571,7 +22639,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 203.2 27.94 0)
 			(effects
 				(font
@@ -22674,7 +22742,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 149.86 97.79 0)
 			(effects
 				(font
@@ -22757,7 +22825,7 @@
 		(at 39.37 214.63 180)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -23427,6 +23495,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 210.82 209.55 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "f863db84-60c0-481b-a87f-deb736029c18")
+		(property "Reference" "TP6"
+			(at 205.74 209.5499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 201.93 209.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Custom_Footprints:1mm_Test_Point"
+			(at 210.82 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 210.82 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 210.82 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f2876226-8ec5-43eb-85fa-4c943ca5768d")
+		)
+		(instances
+			(project "Sinosaur_Components"
+				(path "/ea88d275-24e2-4917-9451-7e51068364d9"
+					(reference "TP6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 194.31 45.72 0)
 		(unit 1)
@@ -23494,7 +23629,6 @@
 	(symbol
 		(lib_id "Amplifier_Operational:TL074")
 		(at 204.47 100.33 0)
-		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23518,8 +23652,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
-			(at 203.2 102.87 0)
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+			(at 203.2 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23528,7 +23662,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf"
-			(at 205.74 105.41 0)
+			(at 205.74 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)

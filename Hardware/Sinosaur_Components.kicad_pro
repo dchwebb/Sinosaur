@@ -59,7 +59,15 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "silk_edge_clearance|112650000|150000000|28e59021-8e9b-45b4-96cb-d2f6c6b0526a|bce5acd4-ac88-43f9-918e-782c106b634f",
+        "silk_edge_clearance|112650000|150030000|28e59021-8e9b-45b4-96cb-d2f6c6b0526a|a00fb276-cbb5-4d95-a3a6-3951fada74b3",
+        "silk_edge_clearance|121350000|150000000|28e59021-8e9b-45b4-96cb-d2f6c6b0526a|c748e1d6-e895-4bf9-840f-6421921e4b46",
+        "silk_over_copper|131090000|63590000|d192c1f3-806b-457c-9aa5-0d801353bc52|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|131090000|70410000|d238cddf-5557-4e27-8d06-168e0c86c5ac|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|134065435|70410000|ad1bec09-6008-469a-9367-d6a5143c841b|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|134073178|63590000|29e02f59-d215-4344-8322-909e43b2afa4|00000000-0000-0000-0000-000000000000"
+      ],
       "meta": {
         "version": 2
       },
@@ -102,7 +110,7 @@
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
-        "starved_thermal": "error",
+        "starved_thermal": "ignore",
         "text_height": "warning",
         "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
@@ -458,7 +466,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Uncertain_Times_Components.kicad_pro",
+    "filename": "Sinosaur_Components.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -564,7 +572,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "Gerbers/Sinosaur_Components/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "Quango_Components.step",

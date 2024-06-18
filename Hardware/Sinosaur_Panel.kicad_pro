@@ -220,7 +220,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Uncertain_Times_Panel.kicad_pro",
+    "filename": "Sinosaur_Panel.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -255,7 +255,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "Gerbers/Kishoof_Panel/",
+      "plot": "Gerbers/Sinosaur_Panel/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "Kishoof_Panel.step",
