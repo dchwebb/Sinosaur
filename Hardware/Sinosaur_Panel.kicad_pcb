@@ -3848,6 +3848,16 @@
 		(layer "B.SilkS")
 		(uuid "4872923d-9b62-4925-bec9-5ee92a276b91")
 	)
+	(gr_line
+		(start 102.9 160.6)
+		(end 114.6 160.6)
+		(stroke
+			(width 0.5)
+			(type default)
+		)
+		(layer "F.Mask")
+		(uuid "1b790207-f993-4928-a40a-922cba0f63d7")
+	)
 	(gr_rect
 		(start 103.8 135.778175)
 		(end 111.8 143.778175)
@@ -4055,6 +4065,16 @@
 		(fill solid)
 		(layer "F.Mask")
 		(uuid "83199f5c-34b2-49df-a1cb-f46342f0c050")
+	)
+	(gr_line
+		(start 123.1 160.6)
+		(end 134.7 160.6)
+		(stroke
+			(width 0.5)
+			(type default)
+		)
+		(layer "F.Mask")
+		(uuid "b15599d6-d433-4db6-a59f-a370570810d6")
 	)
 	(gr_circle
 		(center 120.5 65.6)
@@ -4394,8 +4414,8 @@
 			(justify bottom)
 		)
 	)
-	(gr_text "GATE"
-		(at 151 134.778175 0)
+	(gr_text "Gate"
+		(at 152.2 134.5 0)
 		(layer "F.Mask")
 		(uuid "16a923ee-62fb-4371-8a56-59d4c0272bf6")
 		(effects
@@ -4421,7 +4441,7 @@
 		)
 	)
 	(gr_text "Sine"
-		(at 118.4 161.778175 0)
+		(at 118.9 161.778175 0)
 		(layer "F.Mask")
 		(uuid "26758b5b-ef05-454c-a8d0-d8adf86d2061")
 		(effects
@@ -4444,8 +4464,8 @@
 			)
 		)
 	)
-	(gr_text "CLK"
-		(at 140.5 134.778175 0)
+	(gr_text "Clock"
+		(at 141.7 134.5 0)
 		(layer "F.Mask")
 		(uuid "31c87090-c287-4bae-aa7f-81d15767c14b")
 		(effects
