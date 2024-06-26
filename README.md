@@ -1,2 +1,2 @@
-# Uncertain_Times
+# Sinosaur
  Eurorack LFO Generator 
