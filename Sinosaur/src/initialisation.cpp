@@ -1,7 +1,7 @@
 #include "initialisation.h"
 
 // 12MHz / 3(M) * 85(N) / 2(R) = 170MHz
-#define PLL_M 0b010		// 0010: PLLM = 3
+#define PLL_M 2
 #define PLL_N 85
 #define PLL_R 0			//  00: PLLR = 2, 01: PLLR = 4, 10: PLLR = 6, 11: PLLR = 8
 
@@ -17,7 +17,7 @@ void InitClocks(void) {
 	while ((RCC->CR & RCC_CR_HSERDY) == 0);		// Wait till HSE is ready
 
 	// Configure PLL
-	RCC->PLLCFGR = (PLL_M << RCC_PLLCFGR_PLLM_Pos) | (PLL_N << RCC_PLLCFGR_PLLN_Pos) | (PLL_R << RCC_PLLCFGR_PLLR_Pos) | (RCC_PLLCFGR_PLLSRC_HSE);
+	RCC->PLLCFGR = ((PLL_M - 1) << RCC_PLLCFGR_PLLM_Pos) | (PLL_N << RCC_PLLCFGR_PLLN_Pos) | (PLL_R << RCC_PLLCFGR_PLLR_Pos) | (RCC_PLLCFGR_PLLSRC_HSE);
 	RCC->CR |= RCC_CR_PLLON;					// Enable the main PLL
 	RCC->PLLCFGR = RCC_PLLCFGR_PLLREN;			// Enable PLL R (drives AHB clock)
 	while ((RCC->CR & RCC_CR_PLLRDY) == 0);		// Wait till the main PLL is ready
@@ -48,14 +48,10 @@ void InitHardware()
 	InitDAC();
 	InitIO();
 	InitPWMTimer();
-	InitADC1(&adc.PitchDetect, 2);
-	InitADC3(reinterpret_cast<volatile uint16_t*>(&adc.EnvA.attack), 4);
-	InitADC4(&adc.EnvB.level, 5);
-	InitMidiUART();
-	InitSPI2();
-	InitSPI1();
-	InitEnvTimer();
-	InitTunerTimer();
+	InitADC1(&adc.Sine3_Rate, 1);
+	InitADC3(&adc.Sine2_Rate, 4);
+	InitADC4(&adc.Sine1_Rate, 5);
+	InitOutputTimer();
 	InitCordic();
 }
 
@@ -123,126 +119,10 @@ void InitDAC()
 
 void InitIO()
 {
-	// MODER 00: Input mode, 01: General purpose output mode, 10: Alternate function mode, 11: Analog mode (reset state)
-	// PUPDR 01: Pull-up; 10: Pull-down
 
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;			// GPIO A clock
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;			// GPIO B clock
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOCEN;			// GPIO C clock
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIODEN;			// GPIO D clock
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOFEN;			// GPIO F clock
 
-	//	Init Multiplexer pins PA1, PA3, PF2
-	GPIOA->MODER &= ~GPIO_MODER_MODER1_1;			// PA1: Multiplexer A0 out
-	GPIOA->MODER &= ~GPIO_MODER_MODER3_1;			// PA3: Multiplexer A1 out
-	GPIOF->MODER &= ~GPIO_MODER_MODER2_1;			// PF2: Multiplexer A2 out
-
-	// Init Gate outputs PD2 - PD5
-	GPIOD->MODER &= ~GPIO_MODER_MODER2_1;			// PD2: Gate1 Out
-	GPIOD->MODER &= ~GPIO_MODER_MODER3_1;			// PD3: Gate2 Out
-	GPIOD->MODER &= ~GPIO_MODER_MODER4_1;			// PD4: Gate3 Out
-	GPIOD->MODER &= ~GPIO_MODER_MODER5_1;			// PD5: Gate4 Out
-
-	// Calibration buttons input
-	GPIOB->MODER &= ~GPIO_MODER_MODER10;			// PB10: channel A
-	GPIOB->PUPDR |= GPIO_PUPDR_PUPD10_0;			// Activate pull-up
-	GPIOB->MODER &= ~GPIO_MODER_MODER11;			// PB11: channel B
-	GPIOB->PUPDR |= GPIO_PUPDR_PUPD11_0;			// Activate pull-up
-
-	// Octave Switch pins PD0, PC12
-	GPIOD->MODER &= ~GPIO_MODER_MODER0;				// PD0: Octave
-	GPIOD->PUPDR |= GPIO_PUPDR_PUPD0_1;				// Activate pull-down
-	GPIOC->MODER &= ~GPIO_MODER_MODER12;			// PC12: Octave
-	GPIOC->PUPDR |= GPIO_PUPDR_PUPD12_1;			// Activate pull-down
 }
 
-
-void InitSPI1()
-{
-	// Controls AD5676 8 channel DAC
-	// PB3: SPI1_SCK; PB4: SPI1_MISO; PB5: SPI1_MOSI; PA15: SPI1_NSS (AF5)
-	RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;			// SPI1 clock enable
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN | RCC_AHB2ENR_GPIOBEN;			// GPIO clocks
-
-	// PB3: SPI1_SCK
-	GPIOB->MODER  &= ~GPIO_MODER_MODE3_0;			// 10: Alternate function mode
-	GPIOB->AFR[0] |= 5 << GPIO_AFRL_AFSEL3_Pos;		// Alternate Function 5 (SPI1)
-
-	// PB5: SPI1_MOSI
-	GPIOB->MODER  &= ~GPIO_MODER_MODE5_0;			// 10: Alternate function mode
-	GPIOB->AFR[0] |= 5 << GPIO_AFRL_AFSEL5_Pos;		// Alternate Function 5 (SPI1)
-
-	// PA15: SPI1_NSS (uses GPIO rather than hardware NSS which doesn't work with 24 bit data)
-	GPIOA->MODER |= GPIO_MODER_MODE15_0;			// 01: Output mode
-	GPIOA->MODER &= ~GPIO_MODER_MODE15_1;			// 01: Output mode
-
-	// Configure SPI - baud rate tested working at /4 (42MHz) but run at /8 for now
-	SPI1->CR1 |= SPI_CR1_MSTR;						// Master mode
-	SPI1->CR1 |= SPI_CR1_BR_1;						// Baud rate (170Mhz/x): 000: /2; 001: /4; *010: /8; 011: /16; 100: /32; 101: /64
-	SPI1->CR1 |= SPI_CR1_SSI;						// Internal slave select
-	SPI1->CR1 |= SPI_CR1_SSM;						// Software NSS management
-	SPI1->CR2 |= 0b111 << SPI_CR2_DS_Pos;			// Data Size: 0b111 = 8 bit
-
-	SPI1->CR1 |= SPI_CR1_SPE;						// Enable SPI
-}
-
-
-void InitSPI2()
-{
-	// Controls MCP48CMB21 single channel DAC for channel B envelope 4
-	// PA10: SPI2_MISO; PB13: SPI2_SCK; PB15: SPI2_MOSI; PD15: SPI2_NSS
-	RCC->APB1ENR1 |= RCC_APB1ENR1_SPI2EN;			// SPI2 clock enable
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN | RCC_AHB2ENR_GPIOBEN | RCC_AHB2ENR_GPIODEN;			// GPIO clocks
-
-	// PB13: SPI2_SCK
-	GPIOB->MODER  &= ~GPIO_MODER_MODE13_0;			// 10: Alternate function mode
-	GPIOB->AFR[1] |= 5 << GPIO_AFRH_AFSEL13_Pos;	// Alternate Function 5 (SPI2)
-
-	// PB15: SPI2_MOSI
-	GPIOB->MODER  &= ~GPIO_MODER_MODE15_0;			// 10: Alternate function mode
-	GPIOB->AFR[1] |= 5 << GPIO_AFRH_AFSEL15_Pos;	// Alternate Function 5 (SPI2)
-
-	// PD15: SPI2_NSS
-	GPIOD->MODER  &= ~GPIO_MODER_MODE15_1;			// 01: Output mode
-
-	// Configure SPI
-	SPI2->CR1 |= SPI_CR1_MSTR;						// Master mode
-	SPI2->CR1 |= SPI_CR1_SSI;						// Internal slave select
-	SPI2->CR1 |= SPI_CR1_BR_1;						// Baud rate (170Mhz/x): 000: /2; 001: /4; *010: /8; 011: /16; 100: /32; 101: /64
-	SPI2->CR1 |= SPI_CR1_SSM;						// Software NSS management
-	SPI2->CR2 |= 0b111 << SPI_CR2_DS_Pos;			// Data Size: 0b1011 = 12-bit; 0b111 = 8 bit
-
-	SPI2->CR1 |= SPI_CR1_SPE;						// Enable SPI
-
-	GPIOD->ODR |= GPIO_ODR_OD15;					// SPI2 NSS - initialise high
-}
-
-
-void InitMidiUART()
-{
-	// PC11: UART4_RX (AF5) or USART3_RX (AF7)
-
-	RCC->APB1ENR1 |= RCC_APB1ENR1_UART4EN;			// UART4 clock enable
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOCEN;			// GPIO port C
-
-	GPIOC->MODER &= ~GPIO_MODER_MODE11_0;			// Set alternate function on PE0
-	GPIOC->AFR[1] |= 5 << GPIO_AFRH_AFSEL11_Pos;	// Alternate function on PC11 for USART4_RX is AF5
-
-	// By default clock source is muxed to peripheral clock 1 which is system clock
-	// Calculations depended on oversampling mode set in CR1 OVER8. Default = 0: Oversampling by 16
-
-	UART4->BRR = SystemCoreClock / 31250;			// clk / desired_baud
-	UART4->CR1 &= ~USART_CR1_M;						// 0: 1 Start bit, 8 Data bits, n Stop bit; 	1: 1 Start bit, 9 Data bits, n Stop bit
-	UART4->CR1 |= USART_CR1_RE;						// Receive enable
-	UART4->CR2 |= USART_CR2_RXINV;					// Invert UART receive to allow use of inverting buffer
-
-	// Set up interrupts
-	UART4->CR1 |= USART_CR1_RXNEIE;
-	NVIC_SetPriority(UART4_IRQn, 1);				// Lower is higher priority
-	NVIC_EnableIRQ(UART4_IRQn);
-
-	UART4->CR1 |= USART_CR1_UE;						// UART Enable
-}
 
 
 void InitPWMTimer()
@@ -286,13 +166,10 @@ void InitPWMTimer()
 	TIM3->CR1 |= TIM_CR1_CEN;						// Enable counter
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// TIM4: PD12 TIM4_CH1 (AF2)
-	// 		 PD13 TIM4_CH2 (AF2)
-	// 		 PD14 TIM4_CH3 (AF2)
-	// 		 PB9  TIM4_CH4 (AF2)
+	// TIM2: PB3 TIM2_CH2 (AF2)
+
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;			// Enable GPIO Clock
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIODEN;			// Enable GPIO Clock
-	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM4EN;
+	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM2EN;
 
 	// Enable channels 1 - 3 PWM output pins on PD12-14
 	GPIOD->MODER &= ~(GPIO_MODER_MODE12_0 | GPIO_MODER_MODE13_0 | GPIO_MODER_MODE14_0);
@@ -302,57 +179,30 @@ void InitPWMTimer()
 	GPIOB->MODER &= ~GPIO_MODER_MODE9_0;
 	GPIOB->AFR[1] |= GPIO_AFRH_AFSEL9_1;			// AF2
 
-	TIM4->CCMR1 |= TIM_CCMR1_OC1PE;					// Output compare 1 preload enable
-	TIM4->CCMR1 |= TIM_CCMR1_OC2PE;					// Output compare 2 preload enable
-	TIM4->CCMR2 |= TIM_CCMR2_OC3PE;					// Output compare 3 preload enable
-	TIM4->CCMR2 |= TIM_CCMR2_OC4PE;					// Output compare 4 preload enable
-
-	TIM4->CCMR1 |= (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2);	// 0110: PWM mode 1 - In upcounting, channel 1 active if TIMx_CNT<TIMx_CCR1
-	TIM4->CCMR1 |= (TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2);	// 0110: PWM mode 1 - In upcounting, channel 2 active if TIMx_CNT<TIMx_CCR2
-	TIM4->CCMR2 |= (TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2);	// 0110: PWM mode 1 - In upcounting, channel 3 active if TIMx_CNT<TIMx_CCR3
-	TIM4->CCMR2 |= (TIM_CCMR2_OC4M_1 | TIM_CCMR2_OC4M_2);	// 0110: PWM mode 1 - In upcounting, channel 3 active if TIMx_CNT<TIMx_CCR3
-
-	TIM4->CCR1 = 0;									// Initialise PWM level to 0
-	TIM4->CCR2 = 0;
-	TIM4->CCR3 = 0;
-	TIM4->CCR4 = 0;
+	TIM2->CCMR1 |= TIM_CCMR1_OC2PE;					// Output compare 2 preload enable
+	TIM2->CCMR1 |= (TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2);	// 0110: PWM mode 1 - In upcounting, channel 2 active if TIMx_CNT<TIMx_CCR2
+	TIM2->CCR2 = 0;
 
 	// Timing calculations: Clock = 170MHz / (PSC + 1) = 21.25m counts per second
 	// ARR = number of counts per PWM tick = 2047
 	// 21.25m / ARR ~= 5.2kHz of PWM square wave with 2047 levels of output
 
-	TIM4->ARR = 4095;								// Total number of PWM ticks
-	TIM4->PSC = 7;									// Should give ~5.2kHz
-	TIM4->CR1 |= TIM_CR1_ARPE;						// 1: TIMx_ARR register is buffered
-	TIM4->CCER |= (TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E);		// Capture mode enabled / OC1 signal is output on the corresponding output pin
-	TIM4->EGR |= TIM_EGR_UG;						// 1: Re-initialize the counter and generates an update of the registers
+	TIM2->ARR = 4095;								// Total number of PWM ticks
+	TIM2->PSC = 7;									// Should give ~5.2kHz
+	TIM2->CR1 |= TIM_CR1_ARPE;						// 1: TIMx_ARR register is buffered
+	TIM2->CCER |= (TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E);		// Capture mode enabled / OC1 signal is output on the corresponding output pin
+	TIM2->EGR |= TIM_EGR_UG;						// 1: Re-initialize the counter and generates an update of the registers
 
-	TIM4->CR1 |= TIM_CR1_CEN;						// Enable counter
+	TIM2->CR1 |= TIM_CR1_CEN;						// Enable counter
 }
 
 
-
-//	Setup Timer 2 on an interrupt to trigger sample output
-void InitEnvTimer() {
-	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM2EN;			// Enable Timer 2
-	TIM2->PSC = 16;									// Set prescaler
-	TIM2->ARR = 500; 								// Set auto reload register - 170Mhz / (PSC + 1) / ARR = ~20kHz
-
-	TIM2->DIER |= TIM_DIER_UIE;						// DMA/interrupt enable register
-	NVIC_EnableIRQ(TIM2_IRQn);
-	NVIC_SetPriority(TIM2_IRQn, 2);					// Lower is higher priority
-
-	TIM2->CR1 |= TIM_CR1_CEN;
-	TIM2->EGR |= TIM_EGR_UG;						//  Re-initializes counter and generates update of registers
-}
-
-
-//	Setup Timer 5 on an interrupt to trigger tuner sample capture
-void InitTunerTimer()
+//	Setup Timer 5 on an interrupt to trigger outputs
+void InitOutputTimer()
 {
 	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM5EN;			// Enable Timer 5
-	TIM5->PSC = 1;									// Set prescaler
-	TIM5->ARR = 500; 								// Set auto reload register - 170Mhz / (PSC + 1) / ARR = ~10kHz
+	TIM5->PSC = 16;									// Set prescaler
+	TIM5->ARR = 250; 								// Set auto reload register - 170Mhz / (PSC + 1) / ARR = ~40kHz
 
 	TIM5->DIER |= TIM_DIER_UIE;						// DMA/interrupt enable register
 	NVIC_EnableIRQ(TIM5_IRQn);
@@ -388,17 +238,18 @@ void InitAdcPins(ADC_TypeDef* ADC_No, std::initializer_list<uint8_t> channels) {
 
 /*--------------------------------------------------------------------------------------------
 Configure ADC Channels to be converted:
-0	PE7 ADC3_IN4		Env1 Attack
-1	PE8 ADC345_IN6		Env1 Decay
-2	PE9 ADC3_IN2		Env1 Sustain
-3	PE10 ADC345_IN14	Env1 Release
+	Sine3_Rate	 PC2	ADC12_IN8	1
 
-4	PE11 ADC345_IN15	Env2 Attack
-5	PE12 ADC345_IN16	Env2 Decay
-6	PE14 ADC4_IN1		Env2 Sustain
-7	PE15 ADC4_IN2		Env2 Release
+	Sine2_Rate	 PE11	ADC345_IN15	3
+	Sine1_Level	 PE9	ADC3_IN2	3
+	Sine2_Level	 PE10	ADC345_IN14	3
+	Sine3_Level	 PE7	ADC3_IN4,	3
 
-8	PC0 ADC12_IN6		Pitch Detect Audio
+	Sine1_Rate	 PE8	ADC345_IN6	4
+	Swell_Rate	 PD9	ADC4_IN13	4
+	Swell_Level	 PE12	ADC345_IN16	4
+	Ramp_Rate	 PE14	ADC4_IN1	4
+	Ramp_Level	 PE15	ADC4_IN2	4
 */
 
 void InitADC1(volatile uint16_t* buffer, uint16_t channels)
@@ -448,11 +299,10 @@ void InitADC1(volatile uint16_t* buffer, uint16_t channels)
 
 	/*
 	Configure ADC Channels to be converted:
-	PC0 ADC12_IN6		Pitch Detect Audio
-	PC2 ADC12_IN8		ChannelALevel
+	Sine3_Rate: PC2	ADC12_IN8
 	*/
 
-	InitAdcPins(ADC1, {6, 8});
+	InitAdcPins(ADC1, {8});
 
 	// Enable ADC
 	ADC1->CR |= ADC_CR_ADEN;
@@ -524,13 +374,13 @@ void InitADC3(volatile uint16_t* buffer, uint16_t channels)
 
 	/*--------------------------------------------------------------------------------------------
 	Configure ADC Channels to be converted:
-	PE7 ADC3_IN4		Env1 Attack
-	PE8 ADC345_IN6		Env1 Decay
-	PE9 ADC3_IN2		Env1 Sustain
-	PE10 ADC345_IN14	Env1 Release
+	Sine2_Rate	 PE11	ADC345_IN15	3
+	Sine1_Level	 PE9	ADC3_IN2	3
+	Sine2_Level	 PE10	ADC345_IN14	3
+	Sine3_Level	 PE7	ADC3_IN4,	3
 	*/
 
-	InitAdcPins(ADC3, {4, 6, 2, 14});
+	InitAdcPins(ADC3, {15, 2, 14, 4});
 
 	// Enable ADC
 	ADC3->CR |= ADC_CR_ADEN;
@@ -600,14 +450,14 @@ void InitADC4(volatile uint16_t* buffer, uint16_t channels)
 
 	/*--------------------------------------------------------------------------------------------
 	Configure ADC Channels to be converted:
-	PD9 ADC4_IN13 		ChannelBLevel
-	PE11 ADC345_IN15	Env2 Attack
-	PE12 ADC345_IN16	Env2 Decay
-	PE14 ADC4_IN1		Env2 Sustain
-	PE15 ADC4_IN2		Env2 Release
+	Sine1_Rate	 PE8	ADC345_IN6	4
+	Swell_Rate	 PD9	ADC4_IN13	4
+	Swell_Level	 PE12	ADC345_IN16	4
+	Ramp_Rate	 PE14	ADC4_IN1	4
+	Ramp_Level	 PE15	ADC4_IN2	4
 	*/
 
-	InitAdcPins(ADC4, {13, 15, 16, 1, 2});
+	InitAdcPins(ADC4, {6, 13, 16, 1, 2});
 
 	// Enable ADC
 	ADC4->CR |= ADC_CR_ADEN;
@@ -635,23 +485,6 @@ void InitCordic()
 	RCC->AHB1ENR |= RCC_AHB1ENR_CORDICEN;
 }
 
-
-/*
-//	Setup Timer 9 to count clock cycles for coverage profiling
-void InitCoverageTimer() {
-	RCC->APB2ENR |= RCC_APB2ENR_TIM9EN;				// Enable Timer
-	TIM9->PSC = 100;
-	TIM9->ARR = 65535;
-
-	TIM9->DIER |= TIM_DIER_UIE;						// DMA/interrupt enable register
-	NVIC_EnableIRQ(TIM1_BRK_TIM9_IRQn);
-	NVIC_SetPriority(TIM1_BRK_TIM9_IRQn, 2);		// Lower is higher priority
-
-}
-
-
-
-*/
 
 
 
