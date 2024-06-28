@@ -3,12 +3,18 @@ void SysTick_Handler(void)
 	SysTickVal++;
 }
 
-
 void USB_LP_IRQHandler()
 {
 //	usb.USBInterruptHandler();
 }
 
+
+// Output timer
+void TIM5_IRQHandler(void)
+{
+	TIM5->SR &= ~TIM_SR_UIF;					// clear UIF flag
+	//calib.Capture();
+}
 
 void NMI_Handler(void) {}
 

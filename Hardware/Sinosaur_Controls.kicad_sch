@@ -3755,6 +3755,17 @@
 		)
 		(uuid "3684ba40-95fc-4b3d-83dd-c4c4a8beef4f")
 	)
+	(text "Ramp: Blue\nSwell: Orange"
+		(exclude_from_sim no)
+		(at -9.398 167.386 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5c6422e5-235e-48d4-8bfb-8216c28be3a5")
+	)
 	(text "Dual LEDs"
 		(exclude_from_sim no)
 		(at 17.018 193.802 0)

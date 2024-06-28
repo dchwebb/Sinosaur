@@ -31,6 +31,9 @@ extern uint16_t calibZeroPos;
 #define sysTickInterval 1000						// 1ms
 #define SAMPLERATE 48000.0f
 
+static constexpr float pi = std::numbers::pi_v<float>;
+static constexpr float pi_x_2 = pi * 2.0f;
+
 void InitClocks();
 void InitHardware();
 void InitSysTick();

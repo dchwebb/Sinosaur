@@ -87,7 +87,7 @@ void InitDAC()
 	DAC3->CR |= DAC_CR_EN1;							// Enable DAC
 
 	OPAMP1->CSR |= OPAMP_CSR_VMSEL;					// 11: Opamp_out connected to OPAMPx_VINM input
-	OPAMP1->CSR |= OPAMP_CSR_VPSEL;					// 11: DAC3_CH1  connected to OPAMP1 VINP input
+	OPAMP1->CSR |= OPAMP_CSR_VPSEL;					// 11: DAC3_CH1  connected to OPAMPx VINP input
 	OPAMP1->CSR |= OPAMP_CSR_OPAMPxEN;				// Enable OpAmp: voltage on pin OPAMPx_VINP is buffered to pin OPAMPx_VOUT (PA2)
 
 	// Opamp for DAC3 Channel 2: Follower configuration mode - output on PB1
@@ -95,7 +95,7 @@ void InitDAC()
 	DAC3->CR |= DAC_CR_EN2;							// Enable DAC
 
 	OPAMP3->CSR |= OPAMP_CSR_VMSEL;					// 11: Opamp_out connected to OPAMPx_VINM input
-	OPAMP3->CSR |= OPAMP_CSR_VPSEL;					// 11: DAC3_CH2  connected to OPAMP1 VINP input
+	OPAMP3->CSR |= OPAMP_CSR_VPSEL;					// 11: DAC3_CH2  connected to OPAMPx VINP input
 	OPAMP3->CSR |= OPAMP_CSR_OPAMPxEN;				// Enable OpAmp: voltage on pin OPAMPx_VINP is buffered to pin OPAMPx_VOUT (PB1)
 
 	// Opamp for DAC4 Channel 1: Follower configuration mode - output on PB12
@@ -103,7 +103,7 @@ void InitDAC()
 	DAC4->CR |= DAC_CR_EN1;							// Enable DAC
 
 	OPAMP4->CSR |= OPAMP_CSR_VMSEL;					// 11: Opamp_out connected to OPAMPx_VINM input
-	OPAMP4->CSR |= OPAMP_CSR_VPSEL;					// 11: DAC4_CH1  connected to OPAMP1 VINP input
+	OPAMP4->CSR |= OPAMP_CSR_VPSEL;					// 11: DAC4_CH1  connected to OPAMPx VINP input
 	OPAMP4->CSR |= OPAMP_CSR_OPAMPxEN;				// Enable OpAmp: voltage on pin OPAMPx_VINP is buffered to pin OPAMPx_VOUT (PB12)
 
 	// Opamp for DAC4 Channel 2: Follower configuration mode - output on PA8
@@ -111,7 +111,7 @@ void InitDAC()
 	DAC4->CR |= DAC_CR_EN2;							// Enable DAC
 
 	OPAMP5->CSR |= OPAMP_CSR_VMSEL;					// 11: Opamp_out connected to OPAMPx_VINM input
-	OPAMP5->CSR |= OPAMP_CSR_VPSEL;					// 11: DAC4_CH2  connected to OPAMP1 VINP input
+	OPAMP5->CSR |= OPAMP_CSR_VPSEL;					// 11: DAC4_CH2  connected to OPAMPx VINP input
 	OPAMP5->CSR |= OPAMP_CSR_OPAMPxEN;				// Enable OpAmp: voltage on pin OPAMPx_VINP is buffered to pin OPAMPx_VOUT (PA8)
 
 }
@@ -127,16 +127,13 @@ void InitIO()
 
 void InitPWMTimer()
 {
-	// TIM3: Channel 1: PE2 (AF2)
-	// 		 Channel 2: PE3 (AF2)
-	// 		 Channel 3: PE4 (AF2)
-	// 		 Channel 4: PE5 (AF2)
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;			// Enable GPIO Clock
+	// TIM3: PE2 - PE5
 	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM3EN;
 
-	// Enable channels 1 - 4 PWM output pins on PE2-5
-	GPIOE->MODER &= ~(GPIO_MODER_MODE2_0 | GPIO_MODER_MODE3_0 | GPIO_MODER_MODE4_0 | GPIO_MODER_MODE5_0);
-	GPIOE->AFR[0] |= GPIO_AFRL_AFSEL2_1 | GPIO_AFRL_AFSEL3_1 | GPIO_AFRL_AFSEL4_1 | GPIO_AFRL_AFSEL5_1;			// AF2
+	GpioPin::Init(GPIOE, 2, GpioPin::Type::AlternateFunction, 2);		// Enable channel 1 PWM output pin on PE2
+	GpioPin::Init(GPIOE, 3, GpioPin::Type::AlternateFunction, 2);		// Enable channel 2 PWM output pin on PE3
+	GpioPin::Init(GPIOE, 4, GpioPin::Type::AlternateFunction, 2);		// Enable channel 3 PWM output pin on PE4
+	GpioPin::Init(GPIOE, 5, GpioPin::Type::AlternateFunction, 2);		// Enable channel 4 PWM output pin on PE5
 
 	TIM3->CCMR1 |= TIM_CCMR1_OC1PE;					// Output compare 1 preload enable
 	TIM3->CCMR1 |= TIM_CCMR1_OC2PE;					// Output compare 2 preload enable
@@ -166,22 +163,15 @@ void InitPWMTimer()
 	TIM3->CR1 |= TIM_CR1_CEN;						// Enable counter
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// TIM2: PB3 TIM2_CH2 (AF2)
+	// TIM2: PB3 TIM2_CH2 (AF1)
 
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;			// Enable GPIO Clock
 	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM2EN;
 
-	// Enable channels 1 - 3 PWM output pins on PD12-14
-	GPIOD->MODER &= ~(GPIO_MODER_MODE12_0 | GPIO_MODER_MODE13_0 | GPIO_MODER_MODE14_0);
-	GPIOD->AFR[1] |= GPIO_AFRH_AFSEL12_1 | GPIO_AFRH_AFSEL13_1 | GPIO_AFRH_AFSEL14_1;			// AF2
-
-	// Enable channel 4 PWM output pin on PB9
-	GPIOB->MODER &= ~GPIO_MODER_MODE9_0;
-	GPIOB->AFR[1] |= GPIO_AFRH_AFSEL9_1;			// AF2
+	GpioPin::Init(GPIOB, 3, GpioPin::Type::AlternateFunction, 1);		// Enable channel 2 PWM output pin on PB3
 
 	TIM2->CCMR1 |= TIM_CCMR1_OC2PE;					// Output compare 2 preload enable
 	TIM2->CCMR1 |= (TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2);	// 0110: PWM mode 1 - In upcounting, channel 2 active if TIMx_CNT<TIMx_CCR2
-	TIM2->CCR2 = 0;
+	TIM2->CCR2 = 0x0;
 
 	// Timing calculations: Clock = 170MHz / (PSC + 1) = 21.25m counts per second
 	// ARR = number of counts per PWM tick = 2047
@@ -207,6 +197,9 @@ void InitOutputTimer()
 	TIM5->DIER |= TIM_DIER_UIE;						// DMA/interrupt enable register
 	NVIC_EnableIRQ(TIM5_IRQn);
 	NVIC_SetPriority(TIM5_IRQn, 0);					// Lower is higher priority
+
+	//TIM5->CR1 |= TIM_CR1_CEN;
+	//TIM5->EGR |= TIM_EGR_UG;						//  Re-initializes counter and generates update of registers
 }
 
 

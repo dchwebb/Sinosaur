@@ -10241,9 +10241,9 @@
 		)
 		(uuid "47505cfe-faa3-499d-91c2-ccb35ca49a42")
 	)
-	(text "Gain: 3.3 * (1 + 10k / 10k) = 6.6V\nInverting: 3.3 * (-20k / 10k) = -6.6V"
+	(text "Gain: 3.3 * (1 + 10k / 10k) = 6.6V\nInverting: 3.3 * (-20k / 10k) = -6.6V\n\nInverting fix add 36k resistor from -12V to pin 9 of opamp:\n-12 * (-20/36.36) = 6.6V\n-12 * (-20/36.36) + 3.3 * (-20k / 10k) = 0V"
 		(exclude_from_sim no)
-		(at 189.738 180.34 0)
+		(at 165.608 180.848 0)
 		(effects
 			(font
 				(size 1.27 1.27)
