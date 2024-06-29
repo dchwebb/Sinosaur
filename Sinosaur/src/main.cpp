@@ -1,4 +1,5 @@
 #include "initialisation.h"
+#include "Modulation.h"
 
 volatile uint32_t SysTickVal;
 volatile ADCValues adc;
@@ -16,6 +17,7 @@ int main(void)
 	SystemInit();						// Activates floating point coprocessor and resets clock
 	InitClocks();						// Configure the clock and PLL
 	InitHardware();
+	modulation.Init();
 
 	//usb.InitUSB();
 	//config.RestoreConfig();

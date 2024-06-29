@@ -13,7 +13,7 @@ void USB_LP_IRQHandler()
 void TIM5_IRQHandler(void)
 {
 	TIM5->SR &= ~TIM_SR_UIF;					// clear UIF flag
-	//calib.Capture();
+	modulation.CalcLFO();
 }
 
 void NMI_Handler(void) {}

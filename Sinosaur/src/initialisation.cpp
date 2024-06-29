@@ -198,8 +198,8 @@ void InitOutputTimer()
 	NVIC_EnableIRQ(TIM5_IRQn);
 	NVIC_SetPriority(TIM5_IRQn, 0);					// Lower is higher priority
 
-	//TIM5->CR1 |= TIM_CR1_CEN;
-	//TIM5->EGR |= TIM_EGR_UG;						//  Re-initializes counter and generates update of registers
+	TIM5->CR1 |= TIM_CR1_CEN;
+	TIM5->EGR |= TIM_EGR_UG;						//  Re-initializes counter and generates update of registers
 }
 
 

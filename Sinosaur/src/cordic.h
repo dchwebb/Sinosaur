@@ -13,6 +13,13 @@ public:
 	}
 
 
+	inline static float ToNormalFloat()
+	{
+		constexpr float mult = 1.0f / 2147483648.0f;
+		return ((static_cast<float>(static_cast<int32_t>(CORDIC->RDATA)) * mult) + 1.0f);
+	}
+
+
 	inline static constexpr int TrigToQ31(float x)
 	{
 		while (x > pi) 		x -= pi_x_2;
@@ -33,13 +40,13 @@ public:
 	}
 
 
-	static float Sin(uint32_t x)						// Use x directly, without conversion to float
+	static float SinNormal(uint32_t x)						// Use x directly, without conversion to float
 	{
 		CORDIC->CSR = (1 << CORDIC_CSR_FUNC_Pos) | 		// 0: Cos, 1: Sin, 2: Phase, 3: Modulus, 4: Arctan, 5: cosh, 6: sinh, 7: Arctanh, 8: ln, 9: Square Root
 				(6 << CORDIC_CSR_PRECISION_Pos);		// Set precision to 6 (gives 6 * 4 = 24 iterations in 6 clock cycles)
 
 		CORDIC->WDATA = x;
-		return Cordic::ToFloat();
+		return Cordic::ToNormalFloat();
 	}
 
 
