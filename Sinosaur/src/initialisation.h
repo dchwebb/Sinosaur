@@ -33,6 +33,7 @@ extern uint16_t calibZeroPos;
 
 static constexpr float pi = std::numbers::pi_v<float>;
 static constexpr float pi_x_2 = pi * 2.0f;
+static constexpr float reciprocal4096 = 1.0f / 4095.0f;
 
 void InitClocks();
 void InitHardware();

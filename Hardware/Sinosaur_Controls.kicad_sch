@@ -3757,7 +3757,7 @@
 	)
 	(text "Ramp: Blue\nSwell: Orange"
 		(exclude_from_sim no)
-		(at -9.398 167.386 0)
+		(at 56.388 192.532 0)
 		(effects
 			(font
 				(size 1.27 1.27)

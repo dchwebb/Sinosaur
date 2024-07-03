@@ -19,6 +19,9 @@ public:
 private:
 	void CheckButtons();
 
+	GpioPin Clock = {GPIOC, 12, GpioPin::Type::Input};
+
+
 	struct Btn {
 		GpioPin pin;
 		uint32_t down = 0;
@@ -63,7 +66,9 @@ private:
 		GpioPin levelSwellLed;
 
 		Lfo(uint32_t chn, volatile uint16_t& rate, volatile uint16_t& level, volatile uint32_t* dac, volatile uint32_t* ledPwm,
-				GpioPin rateBtn, GpioPin levelBtn, GpioPin rateRampLed, GpioPin rateSwellLed, GpioPin levelRampLed, GpioPin levelSwellLed)
+				GpioPin rateBtn, GpioPin levelBtn,
+				GpioPin rateRampLed, GpioPin rateSwellLed,
+				GpioPin levelRampLed, GpioPin levelSwellLed)
 		 : index{chn}, rate{rate}, level{level}, dac{dac}, ledPwm{ledPwm}, rateBtn{rateBtn}, levelBtn{levelBtn},
 		   rateRampLed{rateRampLed}, rateSwellLed{rateSwellLed}, levelRampLed{levelRampLed}, levelSwellLed{levelSwellLed} {};
 
@@ -71,7 +76,7 @@ private:
 		{
 			0, adc.Sine1_Rate, adc.Sine1_Level, &DAC3->DHR12R1, &TIM3->CCR3,
 			{GPIOD, 4, GpioPin::Type::InputPullup}, {GPIOD, 1, GpioPin::Type::InputPullup},
-			{GPIOB, 10, GpioPin::Type::Output}, {GPIOC, 9, GpioPin::Type::Output},
+			{GPIOC, 9, GpioPin::Type::Output}, {GPIOB, 10, GpioPin::Type::Output},
 			{GPIOD, 13, GpioPin::Type::Output}, {GPIOC, 6, GpioPin::Type::Output},
 		}, {
 			1, adc.Sine2_Rate, adc.Sine2_Level, &DAC1->DHR12R2, &TIM3->CCR4,
@@ -82,13 +87,17 @@ private:
 			2, adc.Sine3_Rate, adc.Sine3_Level, &DAC1->DHR12R1, &TIM2->CCR2,
 			{GPIOD, 6, GpioPin::Type::InputPullup}, {GPIOD, 3, GpioPin::Type::InputPullup},
 			{GPIOD, 12, GpioPin::Type::Output}, {GPIOF, 9, GpioPin::Type::Output},
-			{GPIOD, 15, GpioPin::Type::Output}, {GPIOC, 6, GpioPin::Type::Output},
+			{GPIOD, 15, GpioPin::Type::Output}, {GPIOC, 8, GpioPin::Type::Output},
 		}
 	};
 
 	struct Envelopes {
-		GpioPin Gate = {GPIOD, 0, GpioPin::Type::Input};
-		GpioPin Clock = {GPIOC, 12, GpioPin::Type::Input};
+		static constexpr float rampInc = 1.0f / 1e8f;
+		static constexpr float swellInc = 2.0f * rampInc;
+		static constexpr float releaseInc = 0.5f;
+
+		GpioPin Gate {GPIOD, 0, GpioPin::Type::Input};
+		float swellDir = 1.0f;					// Switches to negative to reverse swell direction
 
 		struct Env {
 			volatile uint16_t& rate;
@@ -96,11 +105,12 @@ private:
 
 			volatile uint32_t* dac;
 			volatile uint32_t* ledPwm;
+
+			float output;
 		};
 
 		Env ramp = { adc.Ramp_Rate, adc.Ramp_Level, &DAC4->DHR12R1, &TIM3->CCR1 };
 		Env swell = { adc.Swell_Rate, adc.Swell_Level, &DAC4->DHR12R2, &TIM3->CCR2 };
-
 
 	} envelopes;
 
