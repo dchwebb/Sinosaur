@@ -114,7 +114,7 @@ private:
 
 	} envelopes;
 
-	uint32_t output;
+	float output;
 };
 
 

@@ -51,7 +51,6 @@ void InitHardware()
 	InitADC1(&adc.Sine3_Rate, 1);
 	InitADC3(&adc.Sine2_Rate, 4);
 	InitADC4(&adc.Sine1_Rate, 5);
-	InitOutputTimer();
 	InitCordic();
 }
 

@@ -18,6 +18,7 @@ int main(void)
 	InitClocks();						// Configure the clock and PLL
 	InitHardware();
 	modulation.Init();
+	InitOutputTimer();
 
 	//usb.InitUSB();
 	//config.RestoreConfig();

@@ -40,7 +40,16 @@ public:
 	}
 
 
-	static float SinNormal(uint32_t x)						// Use x directly, without conversion to float
+	static float Sin(uint32_t x)						// Use x directly, without conversion to float
+	{
+		CORDIC->CSR = (1 << CORDIC_CSR_FUNC_Pos) | 		// 0: Cos, 1: Sin, 2: Phase, 3: Modulus, 4: Arctan, 5: cosh, 6: sinh, 7: Arctanh, 8: ln, 9: Square Root
+				(6 << CORDIC_CSR_PRECISION_Pos);		// Set precision to 6 (gives 6 * 4 = 24 iterations in 6 clock cycles)
+
+		CORDIC->WDATA = x;
+		return Cordic::ToFloat();
+	}
+
+	static float SinNormal(uint32_t x)					// Use x directly, without conversion to float
 	{
 		CORDIC->CSR = (1 << CORDIC_CSR_FUNC_Pos) | 		// 0: Cos, 1: Sin, 2: Phase, 3: Modulus, 4: Arctan, 5: cosh, 6: sinh, 7: Arctanh, 8: ln, 9: Square Root
 				(6 << CORDIC_CSR_PRECISION_Pos);		// Set precision to 6 (gives 6 * 4 = 24 iterations in 6 clock cycles)

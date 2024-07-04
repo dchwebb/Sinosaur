@@ -25,7 +25,7 @@ void Modulation::CalcLFO()
 		envelopes.ramp.output = std::min(envelopes.ramp.output + Envelopes::rampInc * adc.Ramp_Level * adc.Ramp_Rate, (float)adc.Ramp_Level);
 		float swellOutput = envelopes.swell.output + Envelopes::swellInc * adc.Swell_Level * adc.Swell_Rate * envelopes.swellDir;
 		if (swellOutput >= adc.Swell_Level) {
-			envelopes.swellDir = -1.0f;
+			envelopes.swellDir = -0.5f;			// Swell down sounds better slower than up
 		} else {
 			envelopes.swell.output = std::max(swellOutput, 0.0f);
 		}
@@ -49,12 +49,20 @@ void Modulation::CalcLFO()
 		float currentLevel = 0.5f;
 		if (lfo.levelMode == Lfo::Mode::ramp) {
 			currentLevel *= reciprocal4096 * envelopes.ramp.output;
+		} else if (lfo.levelMode == Lfo::Mode::swell) {
+			currentLevel *= reciprocal4096 * envelopes.swell.output;
 		}
 
-		lfo.lfoCosPos += (speed + 20) * 200;
-		output = static_cast<uint32_t>(Cordic::SinNormal(lfo.lfoCosPos) * lfo.level * currentLevel);			// Will output value from 0 - 4095
-		*lfo.dac = output;
-		*lfo.ledPwm = output;
+		if (lfo.rateMode != Lfo::Mode::none) {
+			uint32_t fm = (uint32_t)((float)speed * reciprocal4096 * ((lfo.rateMode == Lfo::Mode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
+			lfo.lfoCosPos += (fm + 20) * 200;
+		} else {
+			lfo.lfoCosPos += (speed + 20) * 200;
+		}
+		output = Cordic::Sin(lfo.lfoCosPos);
+		uint32_t out = static_cast<uint32_t>((output + 1.0f) * lfo.level * currentLevel);			// Will output value from 0 - 4095
+		*lfo.dac = out;
+		*lfo.ledPwm = out;
 	}
 }
 
