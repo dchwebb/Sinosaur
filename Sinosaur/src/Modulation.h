@@ -47,11 +47,15 @@ private:
 
 		uint32_t index;
 		uint32_t lfoCosPos = 0;			// Position of cordic cosine wave in q1.31 format
+		float output;
+		float fmOutput;
+		float outLevel;
 
 		volatile uint16_t& rate;
 		volatile uint16_t& level;
 
 		volatile uint32_t* dac;
+		volatile uint32_t* fmDac;
 		volatile uint32_t* ledPwm;
 
 		Btn rateBtn;
@@ -65,26 +69,27 @@ private:
 		GpioPin levelRampLed;
 		GpioPin levelSwellLed;
 
-		Lfo(uint32_t chn, volatile uint16_t& rate, volatile uint16_t& level, volatile uint32_t* dac, volatile uint32_t* ledPwm,
+		Lfo(uint32_t chn, volatile uint16_t& rate, volatile uint16_t& level,
+				volatile uint32_t* dac, volatile uint32_t* fmDac, volatile uint32_t* ledPwm,
 				GpioPin rateBtn, GpioPin levelBtn,
 				GpioPin rateRampLed, GpioPin rateSwellLed,
 				GpioPin levelRampLed, GpioPin levelSwellLed)
-		 : index{chn}, rate{rate}, level{level}, dac{dac}, ledPwm{ledPwm}, rateBtn{rateBtn}, levelBtn{levelBtn},
+		 : index{chn}, rate{rate}, level{level}, dac{dac}, fmDac{fmDac}, ledPwm{ledPwm}, rateBtn{rateBtn}, levelBtn{levelBtn},
 		   rateRampLed{rateRampLed}, rateSwellLed{rateSwellLed}, levelRampLed{levelRampLed}, levelSwellLed{levelSwellLed} {};
 
 	} lfos[3] = {
 		{
-			0, adc.Sine1_Rate, adc.Sine1_Level, &DAC3->DHR12R1, &TIM3->CCR3,
+			0, adc.Sine1_Rate, adc.Sine1_Level, &DAC3->DHR12R1, nullptr, &TIM3->CCR3,
 			{GPIOD, 4, GpioPin::Type::InputPullup}, {GPIOD, 1, GpioPin::Type::InputPullup},
 			{GPIOC, 9, GpioPin::Type::Output}, {GPIOB, 10, GpioPin::Type::Output},
 			{GPIOD, 13, GpioPin::Type::Output}, {GPIOC, 6, GpioPin::Type::Output},
 		}, {
-			1, adc.Sine2_Rate, adc.Sine2_Level, &DAC1->DHR12R2, &TIM3->CCR4,
+			1, adc.Sine2_Rate, adc.Sine2_Level, &DAC1->DHR12R2, &DAC3->DHR12R2, &TIM3->CCR4,
 			{GPIOD, 5, GpioPin::Type::InputPullup}, {GPIOD, 2, GpioPin::Type::InputPullup},
 			{GPIOA, 15, GpioPin::Type::Output}, {GPIOB, 11, GpioPin::Type::Output},
 			{GPIOD, 14, GpioPin::Type::Output}, {GPIOC, 7, GpioPin::Type::Output},
 		}, {
-			2, adc.Sine3_Rate, adc.Sine3_Level, &DAC1->DHR12R1, &TIM2->CCR2,
+			2, adc.Sine3_Rate, adc.Sine3_Level, &DAC1->DHR12R1,&DAC2->DHR12R1,  &TIM2->CCR2,
 			{GPIOD, 6, GpioPin::Type::InputPullup}, {GPIOD, 3, GpioPin::Type::InputPullup},
 			{GPIOD, 12, GpioPin::Type::Output}, {GPIOF, 9, GpioPin::Type::Output},
 			{GPIOD, 15, GpioPin::Type::Output}, {GPIOC, 8, GpioPin::Type::Output},
@@ -113,8 +118,6 @@ private:
 		Env swell = { adc.Swell_Rate, adc.Swell_Level, &DAC4->DHR12R2, &TIM3->CCR2 };
 
 	} envelopes;
-
-	float output;
 };
 
 

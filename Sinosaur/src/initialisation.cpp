@@ -1,5 +1,8 @@
 #include "initialisation.h"
 
+GpioPin debugPin1	{GPIOC, 4, GpioPin::Type::Output};			// PC4: Debug (Marked TX)
+GpioPin debugPin2	{GPIOC, 5, GpioPin::Type::Output};			// PC5: Debug (Marked RX)
+
 // 12MHz / 3(M) * 85(N) / 2(R) = 170MHz
 #define PLL_M 2
 #define PLL_N 85

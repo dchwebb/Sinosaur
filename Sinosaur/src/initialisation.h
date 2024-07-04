@@ -27,7 +27,8 @@ struct ADCValues {
 
 extern volatile ADCValues adc;
 extern uint16_t calibZeroPos;
-
+extern GpioPin debugPin1;
+extern GpioPin debugPin2;
 #define sysTickInterval 1000						// 1ms
 #define SAMPLERATE 48000.0f
 
