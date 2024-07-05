@@ -21,6 +21,7 @@ void Modulation::CalcLFO()
 	debugPin1.SetHigh();
 
 	CheckButtons();
+	CheckClock();
 
 	// If gate low (input is inverted) increment ramp and swell
 	if (envelopes.Gate.IsLow()) {
@@ -55,14 +56,32 @@ void Modulation::CalcLFO()
 		}
 		lfo.outLevel = lfo.level * currentLevel;
 
+
 		// Set output position in sine wave
-		if (lfo.rateMode != Lfo::Mode::none) {
-			const uint32_t speed = (uint32_t)((float)lfo.rate * reciprocal4096 * ((lfo.rateMode == Lfo::Mode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
-			lfo.lfoCosPos += (speed + 20) * 200;
+		if (clockValid) {
+			if (lfo.rate > lfo.clockHysteresis + 20 || lfo.rate < lfo.clockHysteresis - 20) {
+
+				lfo.clockHysteresis = lfo.rate;
+
+				if (lfo.clockHysteresis < 682)				lfo.clockMult = 8.0f;
+				else if (lfo.clockHysteresis < 1365) 		lfo.clockMult = 4.0f;
+				else if (lfo.clockHysteresis < 2048) 		lfo.clockMult = 2.0f;
+				else if (lfo.clockHysteresis < 2731) 		lfo.clockMult = 1.0f;
+				else if (lfo.clockHysteresis < 3413) 		lfo.clockMult = 0.5f;
+				else 										lfo.clockMult = 0.25f;
+			}
+			uint32_t tremSpeed = static_cast<uint32_t>(lfo.clockMult * static_cast<float>(clockInterval));
+			lfo.lfoCosPos += 4294967295 / tremSpeed;
 		} else {
-			lfo.lfoCosPos += (lfo.rate + 20) * 200;
+			if (lfo.rateMode != Lfo::Mode::none) {
+				const uint32_t speed = (uint32_t)((float)lfo.rate * reciprocal4096 * ((lfo.rateMode == Lfo::Mode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
+				lfo.lfoCosPos += (speed + 20) * 200;
+			} else {
+				lfo.lfoCosPos += (lfo.rate + 20) * 200;
+			}
 		}
 		lfo.output = Cordic::Sin(lfo.lfoCosPos);
+
 
 		// Calculate FM for LFOs 2 and 3
 		if (lfo.index > 0) {
@@ -81,8 +100,8 @@ void Modulation::CalcLFO()
 
 			lfo.fmOutput = Cordic::Sin((uint32_t)fmPos);
 			*lfo.fmDac = static_cast<uint32_t>((lfo.fmOutput + 1.0f) * lfo.outLevel);
-
 		}
+
 
 		// Scale output
 		uint32_t out = static_cast<uint32_t>((lfo.output + 1.0f) * lfo.outLevel);			// Will output value from 0 - 4095
@@ -132,4 +151,23 @@ void Modulation::CheckButtons()
 			}
 		}
 	}
+}
+
+
+void Modulation::CheckClock()
+{
+	// Check if clock received
+	if (Clock.IsLow()) {		// Clock signal high (inverted)
+		if (!clockHigh) {
+			clockInterval = clockCounter - lastClock;
+			lastClock = clockCounter;
+			clockHigh = true;
+		}
+	} else {
+		clockHigh = false;
+	}
+	clockValid = (clockCounter - lastClock < (SampleRate * 2));					// Valid clock interval is within a second
+	++clockCounter;
+
+
 }

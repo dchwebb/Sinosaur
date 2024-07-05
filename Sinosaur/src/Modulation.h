@@ -18,9 +18,19 @@ public:
 	void CalcLFO();
 private:
 	void CheckButtons();
+	void CheckClock();
 
 	GpioPin Clock = {GPIOC, 12, GpioPin::Type::Input};
 
+	bool     clockValid;					// True if a clock pulse has been received within a second
+	uint32_t clockInterval;					// Clock interval in sample time
+	uint32_t clockCounter;					// Counter used to calculate clock times in sample time
+	uint32_t lastClock;						// Time last clock signal received in sample time
+	bool     clockHigh;						// Record clock high state to detect clock transitions
+
+//	int32_t         tremCosinePos = 0;			// Position of cordic cosine wave in q1.31 format
+//	float           tremCosineVal = 0.0f;		// Value of cosine scaled from 0.0 to 1.0
+//	bool            tremolo = false;			// True if the tremolo is activated
 
 	struct Btn {
 		GpioPin pin;
@@ -45,8 +55,11 @@ private:
 	struct Lfo {
 		enum Mode {none, ramp, swell};
 
-		uint32_t index;
-		uint32_t lfoCosPos = 0;			// Position of cordic cosine wave in q1.31 format
+		uint32_t index;							// Index is used to apply fm from previous lfo output
+		uint32_t lfoCosPos = 0;					// Position of cordic cosine wave in q1.31 format
+		uint32_t clockHysteresis;				// Hysteresis to prevent jumping between multipliers when using clock
+		float clockMult;
+
 		float output;
 		float fmOutput;
 		float outLevel;

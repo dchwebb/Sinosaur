@@ -30,7 +30,7 @@ extern uint16_t calibZeroPos;
 extern GpioPin debugPin1;
 extern GpioPin debugPin2;
 #define sysTickInterval 1000						// 1ms
-#define SAMPLERATE 48000.0f
+static constexpr uint32_t SampleRate =  40000;
 
 static constexpr float pi = std::numbers::pi_v<float>;
 static constexpr float pi_x_2 = pi * 2.0f;
