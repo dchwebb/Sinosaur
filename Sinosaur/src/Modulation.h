@@ -1,21 +1,28 @@
 #pragma once
 
 #include "initialisation.h"
+#include "configManager.h"
 
-/*
- * DAC3_CH1 OPAMP1	PA2		Sine1_DAC
- * DAC1_OUT2		PA5		Sine2_DAC
- * DAC1_OUT1		PA4		Sine3_DAC
- * DAC3_CH2 OPAMP3	PB1		FM2_DAC
- * DAC2_OUT1		PA6		FM3_DAC
- * DAC4_CH1 OPAMP4	PB12	Ramp_DAC
- * DAC4_CH2 OPAMP5	PA8		Swell_DAC
- */
 
 class Modulation {
 public:
 	void Init();
 	void CalcLFO();
+
+	enum LfoMode : uint8_t {none = 0, ramp, swell};
+
+	struct Cfg {
+		LfoMode rateMode[3];
+		LfoMode levelMode[3];
+	};
+	static Cfg cfg;
+
+	ConfigSaver configSaver = {
+		.settingsAddress = &cfg,
+		.settingsSize = sizeof(cfg),
+		.validateSettings = nullptr
+	};
+
 private:
 	void CheckButtons();
 	void CheckClock();
@@ -27,10 +34,6 @@ private:
 	uint32_t clockCounter;					// Counter used to calculate clock times in sample time
 	uint32_t lastClock;						// Time last clock signal received in sample time
 	bool     clockHigh;						// Record clock high state to detect clock transitions
-
-//	int32_t         tremCosinePos = 0;			// Position of cordic cosine wave in q1.31 format
-//	float           tremCosineVal = 0.0f;		// Value of cosine scaled from 0.0 to 1.0
-//	bool            tremolo = false;			// True if the tremolo is activated
 
 	struct Btn {
 		GpioPin pin;
@@ -53,8 +56,6 @@ private:
 	};
 
 	struct Lfo {
-		enum Mode {none, ramp, swell};
-
 		uint32_t index;							// Index is used to apply fm from previous lfo output
 		uint32_t lfoCosPos = 0;					// Position of cordic cosine wave in q1.31 format
 		uint32_t clockHysteresis;				// Hysteresis to prevent jumping between multipliers when using clock
@@ -74,13 +75,13 @@ private:
 		Btn rateBtn;
 		Btn levelBtn;
 
-		Mode rateMode = Mode::none;
-		Mode levelMode = Mode::none;
-
 		GpioPin rateRampLed;
 		GpioPin rateSwellLed;
 		GpioPin levelRampLed;
 		GpioPin levelSwellLed;
+
+		LfoMode& rateMode = Modulation::cfg.rateMode[index];// = Mode::none;
+		LfoMode& levelMode = Modulation::cfg.levelMode[index];// = Mode::none;
 
 		Lfo(uint32_t chn, volatile uint16_t& rate, volatile uint16_t& level,
 				volatile uint32_t* dac, volatile uint32_t* fmDac, volatile uint32_t* ledPwm,

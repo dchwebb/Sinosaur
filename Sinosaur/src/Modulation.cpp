@@ -3,14 +3,20 @@
 
 Modulation modulation;
 
+//static struct {
+//	LfoMode rateMode[3];
+//	LfoMode levelMode[3];
+Modulation::Cfg Modulation::cfg;
+
+
 void Modulation::Init()
 {
 	// Switch common anode LEDs to high to turn off
 	for (auto& lfo : lfos) {
-		lfo.rateRampLed.SetHigh();
-		lfo.rateSwellLed.SetHigh();
-		lfo.levelRampLed.SetHigh();
-		lfo.levelSwellLed.SetHigh();
+		if (lfo.rateMode != LfoMode::ramp)		lfo.rateRampLed.SetHigh();
+		if (lfo.rateMode != LfoMode::swell)		lfo.rateSwellLed.SetHigh();
+		if (lfo.levelMode != LfoMode::ramp)		lfo.levelRampLed.SetHigh();
+		if (lfo.levelMode != LfoMode::swell)	lfo.levelSwellLed.SetHigh();
 	}
 
 }
@@ -49,9 +55,9 @@ void Modulation::CalcLFO()
 	for (auto& lfo : lfos) {
 		// Set output level
 		float currentLevel = 0.5f;
-		if (lfo.levelMode == Lfo::Mode::ramp) {
+		if (lfo.levelMode == LfoMode::ramp) {
 			currentLevel *= reciprocal4096 * envelopes.ramp.output;
-		} else if (lfo.levelMode == Lfo::Mode::swell) {
+		} else if (lfo.levelMode == LfoMode::swell) {
 			currentLevel *= reciprocal4096 * envelopes.swell.output;
 		}
 		lfo.outLevel = lfo.level * currentLevel;
@@ -60,8 +66,8 @@ void Modulation::CalcLFO()
 		// Set output position in sine wave
 		if (clockValid) {
 			int32_t clkHyst = lfo.rate;
-			if (lfo.rateMode != Lfo::Mode::none) {
-				clkHyst = (uint32_t)((float)clkHyst * reciprocal4096 * ((lfo.rateMode == Lfo::Mode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
+			if (lfo.rateMode != LfoMode::none) {
+				clkHyst = (uint32_t)((float)clkHyst * reciprocal4096 * ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
 			}
 
 			if (std::abs(clkHyst - (int32_t)lfo.clockHysteresis) > 20) {
@@ -79,8 +85,8 @@ void Modulation::CalcLFO()
 			lfo.lfoCosPos += 4294967295 / clockSpeed;
 
 		} else {
-			if (lfo.rateMode != Lfo::Mode::none) {
-				const uint32_t speed = (uint32_t)((float)lfo.rate * reciprocal4096 * ((lfo.rateMode == Lfo::Mode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
+			if (lfo.rateMode != LfoMode::none) {
+				const uint32_t speed = (uint32_t)((float)lfo.rate * reciprocal4096 * ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
 				lfo.lfoCosPos += (speed + 20) * 200;
 			} else {
 				lfo.lfoCosPos += (lfo.rate + 20) * 200;
@@ -123,35 +129,37 @@ void Modulation::CheckButtons()
 {
 	for (auto& lfo : lfos) {
 		if (lfo.rateBtn.Pressed()) {
+			config.ScheduleSave();
 			switch (lfo.rateMode) {
-			case Lfo::Mode::none:
-				lfo.rateMode = Lfo::Mode::ramp;
+			case LfoMode::none:
+				lfo.rateMode = LfoMode::ramp;
 				lfo.rateRampLed.SetLow();
 				break;
-			case Lfo::Mode::ramp:
-				lfo.rateMode = Lfo::Mode::swell;
+			case LfoMode::ramp:
+				lfo.rateMode = LfoMode::swell;
 				lfo.rateRampLed.SetHigh();
 				lfo.rateSwellLed.SetLow();
 				break;
-			case Lfo::Mode::swell:
-				lfo.rateMode = Lfo::Mode::none;
+			case LfoMode::swell:
+				lfo.rateMode = LfoMode::none;
 				lfo.rateSwellLed.SetHigh();
 				break;
 			}
 		}
 		if (lfo.levelBtn.Pressed()) {
+			config.ScheduleSave();
 			switch (lfo.levelMode) {
-			case Lfo::Mode::none:
-				lfo.levelMode = Lfo::Mode::ramp;
+			case LfoMode::none:
+				lfo.levelMode = LfoMode::ramp;
 				lfo.levelRampLed.SetLow();
 				break;
-			case Lfo::Mode::ramp:
-				lfo.levelMode = Lfo::Mode::swell;
+			case LfoMode::ramp:
+				lfo.levelMode = LfoMode::swell;
 				lfo.levelRampLed.SetHigh();
 				lfo.levelSwellLed.SetLow();
 				break;
-			case Lfo::Mode::swell:
-				lfo.levelMode = Lfo::Mode::none;
+			case LfoMode::swell:
+				lfo.levelMode = LfoMode::none;
 				lfo.levelSwellLed.SetHigh();
 				break;
 			}
