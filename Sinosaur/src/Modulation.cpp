@@ -59,19 +59,25 @@ void Modulation::CalcLFO()
 
 		// Set output position in sine wave
 		if (clockValid) {
-			if (lfo.rate > lfo.clockHysteresis + 20 || lfo.rate < lfo.clockHysteresis - 20) {
-
-				lfo.clockHysteresis = lfo.rate;
-
-				if (lfo.clockHysteresis < 682)				lfo.clockMult = 8.0f;
-				else if (lfo.clockHysteresis < 1365) 		lfo.clockMult = 4.0f;
-				else if (lfo.clockHysteresis < 2048) 		lfo.clockMult = 2.0f;
-				else if (lfo.clockHysteresis < 2731) 		lfo.clockMult = 1.0f;
-				else if (lfo.clockHysteresis < 3413) 		lfo.clockMult = 0.5f;
-				else 										lfo.clockMult = 0.25f;
+			int32_t clkHyst = lfo.rate;
+			if (lfo.rateMode != Lfo::Mode::none) {
+				clkHyst = (uint32_t)((float)clkHyst * reciprocal4096 * ((lfo.rateMode == Lfo::Mode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
 			}
-			uint32_t tremSpeed = static_cast<uint32_t>(lfo.clockMult * static_cast<float>(clockInterval));
-			lfo.lfoCosPos += 4294967295 / tremSpeed;
+
+			if (std::abs(clkHyst - (int32_t)lfo.clockHysteresis) > 20) {
+				lfo.clockHysteresis = clkHyst;
+
+				if (clkHyst < 682)				lfo.clockMult = 8.0f;
+				else if (clkHyst < 1365) 		lfo.clockMult = 4.0f;
+				else if (clkHyst < 2048) 		lfo.clockMult = 2.0f;
+				else if (clkHyst < 2731) 		lfo.clockMult = 1.0f;
+				else if (clkHyst < 3413) 		lfo.clockMult = 0.5f;
+				else 							lfo.clockMult = 0.25f;
+			}
+			uint32_t clockSpeed = static_cast<uint32_t>(lfo.clockMult * static_cast<float>(clockInterval));
+
+			lfo.lfoCosPos += 4294967295 / clockSpeed;
+
 		} else {
 			if (lfo.rateMode != Lfo::Mode::none) {
 				const uint32_t speed = (uint32_t)((float)lfo.rate * reciprocal4096 * ((lfo.rateMode == Lfo::Mode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
