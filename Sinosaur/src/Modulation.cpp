@@ -32,9 +32,9 @@ void Modulation::CalcLFO()
 		// Set output level
 		float currentLevel = 0.5f;
 		if (lfo.levelMode == LfoMode::ramp) {
-			currentLevel *= reciprocal4096 * envelopes.ramp.output;
+			currentLevel *= envelopes.ramp.output;
 		} else if (lfo.levelMode == LfoMode::swell) {
-			currentLevel *= reciprocal4096 * envelopes.swell.output;
+			currentLevel *= envelopes.swell.output;
 		}
 		lfo.outLevel = lfo.level * currentLevel;
 
@@ -43,7 +43,7 @@ void Modulation::CalcLFO()
 		if (clockValid) {
 			int32_t clkHyst = lfo.rate;
 			if (lfo.rateMode != LfoMode::none) {
-				clkHyst = (uint32_t)((float)clkHyst * reciprocal4096 * ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
+				clkHyst = (uint32_t)((float)clkHyst * ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
 			}
 
 			if (std::abs(clkHyst - (int32_t)lfo.clockHysteresis) > 20) {
@@ -63,7 +63,7 @@ void Modulation::CalcLFO()
 		} else {
 			float speed = lfo.rate * reciprocal4096;
 			if (lfo.rateMode != LfoMode::none) {
-				speed *= reciprocal4096 * ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output);
+				speed *= ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output);
 			}
 			speed *= speed;			// Square the speed to increase resolution at low settings
 			lfo.lfoCosPos += (uint32_t)((speed + 0.001) * 500'000.0f);
@@ -105,14 +105,15 @@ void Modulation::CalculateEnvelopes()
 {
 	// If gate low (input is inverted) increment ramp and swell
 	if (envelopes.Gate.IsLow()) {
-		envelopes.ramp.output = std::min(envelopes.ramp.output + Envelopes::rampInc * adc.Ramp_Level * adc.Ramp_Rate, (float)adc.Ramp_Level);
+		envelopes.ramp.output = std::min(envelopes.ramp.output + Envelopes::rampInc * adc.Ramp_Level * adc.Ramp_Rate, reciprocal4096 * adc.Ramp_Level);
 		const float swellOutput = envelopes.swell.output + Envelopes::swellInc * adc.Swell_Level * adc.Swell_Rate * envelopes.swellDir;
-		if (swellOutput >= adc.Swell_Level) {
+		if (swellOutput * 4096 >= adc.Swell_Level) {
 			envelopes.swellDir = -0.5f;			// Swell down sounds better slower than up
 		} else {
 			envelopes.swell.output = std::max(swellOutput, 0.0f);
 		}
 	} else {
+		// return to zero values without abrupt change
 		if (envelopes.ramp.output > 0.0f) {
 			envelopes.ramp.output = std::max(envelopes.ramp.output - Envelopes::releaseInc, 0.0f);
 		}
@@ -121,10 +122,10 @@ void Modulation::CalculateEnvelopes()
 		}
 		envelopes.swellDir = 1.0f;
 	}
-	*envelopes.ramp.ledPwm = uint32_t(envelopes.ramp.output);
-	*envelopes.ramp.dac = uint32_t(envelopes.ramp.output);
-	*envelopes.swell.ledPwm = uint32_t(envelopes.swell.output);
-	*envelopes.swell.dac = uint32_t(envelopes.swell.output);
+	*envelopes.ramp.ledPwm = uint32_t(std::pow(envelopes.ramp.output, 2.0f) * 4095);
+	*envelopes.ramp.dac = uint32_t(envelopes.ramp.output * 4095);
+	*envelopes.swell.ledPwm = uint32_t(std::pow(envelopes.swell.output, 2.0f) * 4095);
+	*envelopes.swell.dac = uint32_t(envelopes.swell.output * 4095);
 }
 
 

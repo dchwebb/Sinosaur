@@ -112,9 +112,9 @@ private:
 	};
 
 	struct Envelopes {
-		static constexpr float rampInc = 1.0f / 1e8f;
-		static constexpr float swellInc = 1.0f * rampInc;
-		static constexpr float releaseInc = 0.5f;
+		static constexpr float rampInc = 1.0f / 1e12f;
+		static constexpr float swellInc = 2.0f * rampInc;
+		static constexpr float releaseInc = 0.0002f;
 
 		GpioPin Gate {GPIOD, 0, GpioPin::Type::Input};
 		float swellDir = 1.0f;					// Switches to negative to reverse swell direction
