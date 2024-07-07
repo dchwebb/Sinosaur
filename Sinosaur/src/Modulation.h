@@ -24,6 +24,7 @@ public:
 	};
 
 private:
+	void CalculateEnvelopes();
 	void CheckButtons();
 	void CheckClock();
 
@@ -112,7 +113,7 @@ private:
 
 	struct Envelopes {
 		static constexpr float rampInc = 1.0f / 1e8f;
-		static constexpr float swellInc = 2.0f * rampInc;
+		static constexpr float swellInc = 1.0f * rampInc;
 		static constexpr float releaseInc = 0.5f;
 
 		GpioPin Gate {GPIOD, 0, GpioPin::Type::Input};

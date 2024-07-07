@@ -3,9 +3,6 @@
 
 Modulation modulation;
 
-//static struct {
-//	LfoMode rateMode[3];
-//	LfoMode levelMode[3];
 Modulation::Cfg Modulation::cfg;
 
 
@@ -18,7 +15,6 @@ void Modulation::Init()
 		if (lfo.levelMode != LfoMode::ramp)		lfo.levelRampLed.SetHigh();
 		if (lfo.levelMode != LfoMode::swell)	lfo.levelSwellLed.SetHigh();
 	}
-
 }
 
 
@@ -29,28 +25,8 @@ void Modulation::CalcLFO()
 	CheckButtons();
 	CheckClock();
 
-	// If gate low (input is inverted) increment ramp and swell
-	if (envelopes.Gate.IsLow()) {
-		envelopes.ramp.output = std::min(envelopes.ramp.output + Envelopes::rampInc * adc.Ramp_Level * adc.Ramp_Rate, (float)adc.Ramp_Level);
-		float swellOutput = envelopes.swell.output + Envelopes::swellInc * adc.Swell_Level * adc.Swell_Rate * envelopes.swellDir;
-		if (swellOutput >= adc.Swell_Level) {
-			envelopes.swellDir = -0.5f;			// Swell down sounds better slower than up
-		} else {
-			envelopes.swell.output = std::max(swellOutput, 0.0f);
-		}
-	} else {
-		if (envelopes.ramp.output > 0.0f) {
-			envelopes.ramp.output = std::max(envelopes.ramp.output - Envelopes::releaseInc, 0.0f);
-		}
-		if (envelopes.swell.output > 0.0f) {
-			envelopes.swell.output = std::max(envelopes.swell.output - Envelopes::releaseInc, 0.0f);
-		}
-		envelopes.swellDir = 1.0f;
-	}
-	*envelopes.ramp.ledPwm = uint32_t(envelopes.ramp.output);
-	*envelopes.ramp.dac = uint32_t(envelopes.ramp.output);
-	*envelopes.swell.ledPwm = uint32_t(envelopes.swell.output);
-	*envelopes.swell.dac = uint32_t(envelopes.swell.output);
+	CalculateEnvelopes();
+
 
 	for (auto& lfo : lfos) {
 		// Set output level
@@ -85,12 +61,12 @@ void Modulation::CalcLFO()
 			lfo.lfoCosPos += 4294967295 / clockSpeed;
 
 		} else {
+			float speed = lfo.rate * reciprocal4096;
 			if (lfo.rateMode != LfoMode::none) {
-				const uint32_t speed = (uint32_t)((float)lfo.rate * reciprocal4096 * ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output));
-				lfo.lfoCosPos += (speed + 20) * 200;
-			} else {
-				lfo.lfoCosPos += (lfo.rate + 20) * 200;
+				speed *= reciprocal4096 * ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output);
 			}
+			speed *= speed;			// Square the speed to increase resolution at low settings
+			lfo.lfoCosPos += (uint32_t)((speed + 0.001) * 500'000.0f);
 		}
 		lfo.output = Cordic::Sin(lfo.lfoCosPos);
 
@@ -122,6 +98,33 @@ void Modulation::CalcLFO()
 	}
 
 	debugPin1.SetLow();
+}
+
+
+void Modulation::CalculateEnvelopes()
+{
+	// If gate low (input is inverted) increment ramp and swell
+	if (envelopes.Gate.IsLow()) {
+		envelopes.ramp.output = std::min(envelopes.ramp.output + Envelopes::rampInc * adc.Ramp_Level * adc.Ramp_Rate, (float)adc.Ramp_Level);
+		const float swellOutput = envelopes.swell.output + Envelopes::swellInc * adc.Swell_Level * adc.Swell_Rate * envelopes.swellDir;
+		if (swellOutput >= adc.Swell_Level) {
+			envelopes.swellDir = -0.5f;			// Swell down sounds better slower than up
+		} else {
+			envelopes.swell.output = std::max(swellOutput, 0.0f);
+		}
+	} else {
+		if (envelopes.ramp.output > 0.0f) {
+			envelopes.ramp.output = std::max(envelopes.ramp.output - Envelopes::releaseInc, 0.0f);
+		}
+		if (envelopes.swell.output > 0.0f) {
+			envelopes.swell.output = std::max(envelopes.swell.output - Envelopes::releaseInc, 0.0f);
+		}
+		envelopes.swellDir = 1.0f;
+	}
+	*envelopes.ramp.ledPwm = uint32_t(envelopes.ramp.output);
+	*envelopes.ramp.dac = uint32_t(envelopes.ramp.output);
+	*envelopes.swell.ledPwm = uint32_t(envelopes.swell.output);
+	*envelopes.swell.dac = uint32_t(envelopes.swell.output);
 }
 
 
