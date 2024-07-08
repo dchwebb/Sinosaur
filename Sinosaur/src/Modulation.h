@@ -112,8 +112,8 @@ private:
 	};
 
 	struct Envelopes {
-		static constexpr float rampInc = 1.0f / 1e12f;
-		static constexpr float swellInc = 2.0f * rampInc;
+		static constexpr float rampInc = 1e-8f;
+		static constexpr float swellInc = 4e-8f;
 		static constexpr float releaseInc = 0.0002f;
 
 		GpioPin Gate {GPIOD, 0, GpioPin::Type::Input};

@@ -105,12 +105,16 @@ void Modulation::CalculateEnvelopes()
 {
 	// If gate low (input is inverted) increment ramp and swell
 	if (envelopes.Gate.IsLow()) {
-		envelopes.ramp.output = std::min(envelopes.ramp.output + Envelopes::rampInc * adc.Ramp_Level * adc.Ramp_Rate, reciprocal4096 * adc.Ramp_Level);
-		const float swellOutput = envelopes.swell.output + Envelopes::swellInc * adc.Swell_Level * adc.Swell_Rate * envelopes.swellDir;
-		if (swellOutput * 4096 >= adc.Swell_Level) {
+		const float rampRateScaled = std::pow((500.0f + adc.Ramp_Rate) * reciprocal4096, 2.0f);
+		const float rampOut = envelopes.ramp.output + Envelopes::rampInc * adc.Ramp_Level * rampRateScaled;
+		envelopes.ramp.output = std::min(rampOut, reciprocal4096 * adc.Ramp_Level);
+
+		const float swellRateScaled = std::pow((100.0f + adc.Swell_Rate) * reciprocal4096, 2.0f);
+		const float swellOut = envelopes.swell.output + Envelopes::swellInc * adc.Swell_Level * swellRateScaled * envelopes.swellDir;
+		if (swellOut * 4096 >= adc.Swell_Level) {
 			envelopes.swellDir = -0.5f;			// Swell down sounds better slower than up
 		} else {
-			envelopes.swell.output = std::max(swellOutput, 0.0f);
+			envelopes.swell.output = std::max(swellOut, 0.0f);
 		}
 	} else {
 		// return to zero values without abrupt change

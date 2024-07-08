@@ -4376,7 +4376,7 @@
 			(justify mirror)
 		)
 	)
-	(gr_text "Mountjoy Modular 2024\nSinosaur Panel v1.0"
+	(gr_text "Mountjoy Modular 2024\nSinosaur Panel v2.0"
 		(at 129.8 44.5 0)
 		(layer "B.SilkS")
 		(uuid "96df35ba-bbb7-4ae9-a447-0e51d318ee93")
