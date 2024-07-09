@@ -24,9 +24,7 @@ void Modulation::CalcLFO()
 
 	CheckButtons();
 	CheckClock();
-
 	CalculateEnvelopes();
-
 
 	for (auto& lfo : lfos) {
 		// Set output level
@@ -61,11 +59,10 @@ void Modulation::CalcLFO()
 			lfo.lfoCosPos += 4294967295 / clockSpeed;
 
 		} else {
-			float speed = lfo.rate * reciprocal4096;
+			float speed = std::pow(lfo.rate * reciprocal4096, 2.0f);			// Square the speed to increase resolution at low settings
 			if (lfo.rateMode != LfoMode::none) {
 				speed *= ((lfo.rateMode == LfoMode::ramp) ? envelopes.ramp.output : envelopes.swell.output);
 			}
-			speed *= speed;			// Square the speed to increase resolution at low settings
 			lfo.lfoCosPos += (uint32_t)((speed + 0.001) * 500'000.0f);
 		}
 		lfo.output = Cordic::Sin(lfo.lfoCosPos);

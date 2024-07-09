@@ -9,7 +9,7 @@ public:
 	void Init();
 	void CalcLFO();
 
-	enum LfoMode : uint8_t {none = 0, ramp, swell};
+	enum LfoMode : uint8_t {none = 0, ramp = 1, swell = 2};
 
 	struct Cfg {
 		LfoMode rateMode[3];

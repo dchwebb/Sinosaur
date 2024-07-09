@@ -21,11 +21,8 @@ int main(void)
 	modulation.Init();
 	InitOutputTimer();
 
-	//usb.InitUSB();
-
 	while (1) {
 		config.SaveConfig();			// Save any scheduled changes
-		//usb.cdc.ProcessCommand();		// Check for incoming USB serial commands
 	}
 }
 

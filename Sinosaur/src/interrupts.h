@@ -3,11 +3,6 @@ void SysTick_Handler(void)
 	SysTickVal++;
 }
 
-void USB_LP_IRQHandler()
-{
-//	usb.USBInterruptHandler();
-}
-
 
 // Output timer
 void TIM5_IRQHandler(void)

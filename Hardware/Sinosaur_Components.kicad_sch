@@ -10241,6 +10241,17 @@
 		)
 		(uuid "47505cfe-faa3-499d-91c2-ccb35ca49a42")
 	)
+	(text "Errata: Phase inverted output of sine 1 outputs from -6.6V to 0V\nAttach a 36k resistor from -12V to U4C pin 9 to change to 0 to 6.6V\nNote when level control is zero this sets inverted output to 6.6V"
+		(exclude_from_sim no)
+		(at 274.066 222.504 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4bae7f6f-b418-4b72-b86d-ec2ec8879702")
+	)
 	(text "Gain: 3.3 * (1 + 10k / 10k) = 6.6V\nInverting: 3.3 * (-20k / 10k) = -6.6V\n\nInverting fix add 36k resistor from -12V to pin 9 of opamp:\n-12 * (-20/36.36) = 6.6V\n-12 * (-20/36.36) + 3.3 * (-20k / 10k) = 0V"
 		(exclude_from_sim no)
 		(at 165.608 180.848 0)

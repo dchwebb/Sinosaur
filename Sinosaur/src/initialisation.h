@@ -26,9 +26,9 @@ struct ADCValues {
 
 
 extern volatile ADCValues adc;
-extern uint16_t calibZeroPos;
 extern GpioPin debugPin1;
 extern GpioPin debugPin2;
+
 #define sysTickInterval 1000						// 1ms
 static constexpr uint32_t SampleRate =  40000;
 
@@ -40,11 +40,9 @@ void InitClocks();
 void InitHardware();
 void InitSysTick();
 void InitDAC();
-void InitIO();
 void InitADC1(volatile uint16_t* buffer, uint16_t channels);
 void InitADC3(volatile uint16_t* buffer, uint16_t channels);
 void InitADC4(volatile uint16_t* buffer, uint16_t channels);
-void InitUart();
 void InitCordic();
 void InitPWMTimer();
 void InitOutputTimer();

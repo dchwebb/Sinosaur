@@ -49,7 +49,6 @@ void InitHardware()
 {
 	InitSysTick();
 	InitDAC();
-	InitIO();
 	InitPWMTimer();
 	InitADC1(&adc.Sine3_Rate, 1);
 	InitADC3(&adc.Sine2_Rate, 4);
@@ -117,14 +116,6 @@ void InitDAC()
 	OPAMP5->CSR |= OPAMP_CSR_OPAMPxEN;				// Enable OpAmp: voltage on pin OPAMPx_VINP is buffered to pin OPAMPx_VOUT (PA8)
 
 }
-
-
-void InitIO()
-{
-
-
-}
-
 
 
 void InitPWMTimer()
@@ -320,13 +311,9 @@ void InitADC1(volatile uint16_t* buffer, uint16_t channels)
 }
 
 
-
-
 void InitADC3(volatile uint16_t* buffer, uint16_t channels)
 {
 	// Initialize Clocks
-	//RCC->AHB1ENR |= RCC_AHB1ENR_DMA1EN;
-	//RCC->AHB1ENR |= RCC_AHB1ENR_DMAMUX1EN;
 	RCC->AHB2ENR |= RCC_AHB2ENR_ADC345EN;
 	RCC->CCIPR |= RCC_CCIPR_ADC345SEL_1;			// 00: no clock, 01: PLL P clk clock, *10: System clock
 
@@ -400,12 +387,6 @@ void InitADC3(volatile uint16_t* buffer, uint16_t channels)
 
 void InitADC4(volatile uint16_t* buffer, uint16_t channels)
 {
-	// Initialize Clocks
-	//RCC->AHB1ENR |= RCC_AHB1ENR_DMA1EN;
-	//RCC->AHB1ENR |= RCC_AHB1ENR_DMAMUX1EN;
-	//RCC->AHB2ENR |= RCC_AHB2ENR_ADC345EN;
-	//RCC->CCIPR |= RCC_CCIPR_ADC345SEL_1;			// 00: no clock, 01: PLL P clk clock, *10: System clock
-
 	DMA1_Channel3->CCR &= ~DMA_CCR_EN;
 	DMA1_Channel3->CCR |= DMA_CCR_CIRC;				// Circular mode to keep refilling buffer
 	DMA1_Channel3->CCR |= DMA_CCR_MINC;				// Memory in increment mode
