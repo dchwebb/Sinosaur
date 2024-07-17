@@ -2,6 +2,8 @@
 
 ## Overview
 
+![Image](Graphics/Sinosaur_Front.jpg "icon")
+
 Sinosaur is an LFO and simple envelope generator for use in a Eurorack modular synthesiser. Two envlopes are available: a ramp and a swell, each with a speed and a level control. Each of the sine waves has a rate and level control both of which can be controlled with either envelope.
 
 Sine 1 has a normal output and a phase inverted output. Sines 2 and 3 have a normal output and an FM output, which is derived from the preceding sine wave. Clicking the sine wave's rate or level potentiometer switches the ramp or swell envelopes on for that control. An LED cycles between blue (ramp control), red (swell control) or off to show envelope control.
@@ -14,11 +16,13 @@ A clock input is also available to limit the sine wave rates to multiples and di
 
 ## Outputs
 
-Outputs range from 0V to 6.6V. The level control of the sine waves amplifies from Ov up to a 0V - 6.6V level (ie unipolar rather than bipolar around a central level). The inverted sine's level is 6.6V when the level control is at zero and increases to a maximum swing of 6.6V to 0V.
+Outputs range from 0V to 6.6V. The level control of the sine waves amplifies from 0v up to a 0V - 6.6V level (ie unipolar rather than bipolar around a central level). The inverted sine's level is 6.6V when the level control is at zero and increases to a maximum swing of 6.6V to 0V.
 
 The levels of the envlopes and sine waves is displayed using LEDs (blue for ramp, orange for swell and white for sine waves).
 
 ## Technical
+
+![Image](Graphics/Sinosaur_Back.jpg "icon")
 
 The module is based around an STM32G473 microcontroller, clocked at 170MHz. The various sine wave and envelopes are all generated internally by one of the microcontroller's seven 12 bit DACs.
 
@@ -39,3 +43,9 @@ Power is supplied via a 3.3V LDO regulator.
 
 - +12V current draw: 90 mA
 - -12V Current draw: 14 mA
+
+## Errata
+
+The inverted output of sine 1 will produce a -6.6V to 0V signal. As detailed on the component schematic a resistor is added to mix in the -12V signal raising the output to 0 - 6.6N.
+
+This is still not ideal as at a zero level the inverted output is at 6.6V. No obvious solution available other than adding an additional DAC.
