@@ -4,7 +4,7 @@
 
 ![Image](Graphics/Sinosaur_Front.jpg "icon")
 
-Sinosaur is an LFO and simple envelope generator for use in a Eurorack modular synthesiser. Two envlopes are available: a ramp and a swell, each with a speed and a level control. Each of the sine waves has a rate and level control both of which can be controlled with either envelope.
+Sinosaur is an LFO and simple envelope generator for use in a Eurorack modular synthesiser. Two envelopes are available: a ramp and a swell, each with a speed and a level control. Each of the sine waves has a rate and level control both of which can be controlled with either envelope.
 
 Sine 1 has a normal output and a phase inverted output. Sines 2 and 3 have a normal output and an FM output, which is derived from the preceding sine wave. Clicking the sine wave's rate or level potentiometer switches the ramp or swell envelopes on for that control. An LED cycles between blue (ramp control), red (swell control) or off to show envelope control.
 
